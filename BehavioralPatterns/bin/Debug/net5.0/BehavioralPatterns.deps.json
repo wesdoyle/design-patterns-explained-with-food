@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "BehavioralPatterns/1.0.0": {
+        "dependencies": {
+          "RealisticDependencies": "1.0.0"
+        },
+        "runtime": {
+          "BehavioralPatterns.dll": {}
+        }
+      },
+      "RealisticDependencies/1.0.0": {
+        "runtime": {
+          "RealisticDependencies.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BehavioralPatterns/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RealisticDependencies/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\BehavioralPatterns\\BehavioralPatterns.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\BehavioralPatterns\\BehavioralPatterns.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\BehavioralPatterns\\BehavioralPatterns.csproj",
+        "projectName": "BehavioralPatterns",
+        "projectPath": "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\BehavioralPatterns\\BehavioralPatterns.csproj",
+        "packagesPath": "C:\\Users\\wes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\BehavioralPatterns\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\RealisticDependencies\\RealisticDependencies.csproj": {
+                "projectPath": "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\RealisticDependencies\\RealisticDependencies.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\RealisticDependencies\\RealisticDependencies.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\RealisticDependencies\\RealisticDependencies.csproj",
+        "projectName": "RealisticDependencies",
+        "projectPath": "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\RealisticDependencies\\RealisticDependencies.csproj",
+        "packagesPath": "C:\\Users\\wes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wes\\projects\\csharp-design-patterns\\DesignPatterns\\RealisticDependencies\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\wes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

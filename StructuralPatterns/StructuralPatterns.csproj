@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Adapter\" />
+    <Folder Include="Bridge\" />
+    <Folder Include="Composite\" />
+    <Folder Include="Decorator\" />
+    <Folder Include="Facade\" />
+    <Folder Include="Flyweight\" />
+    <Folder Include="Proxy\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RealisticDependencies\RealisticDependencies.csproj" />
+  </ItemGroup>
+
+</Project>
