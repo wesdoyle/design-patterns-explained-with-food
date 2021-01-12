@@ -14,11 +14,11 @@ namespace CreationalPatterns.AbstractFactory {
 
         public async Task SendDessertsPlanToSubscriber(string subscriberEmail) {
             Console.WriteLine($"--------------------------------------------------------------");
-            var lunchMenu = _factory.GenerateDessertsMenu();
-            lunchMenu.PrintDescription();
+            var dessertMenu = _factory.GenerateDessertsMenu();
+            dessertMenu.PrintDescription();
             Console.WriteLine($"== 🍜 Compiling Desserts Menu for Subscriber: {subscriberEmail} ==");
-            lunchMenu.PrintMenu();
-            var ingredients = lunchMenu.GetMenuIngredients();
+            dessertMenu.PrintMenu();
+            var ingredients = dessertMenu.MakeShoppingList();
             var emailBody = string.Join(", ", ingredients);
             var message = new EmailMessage(subscriberEmail, emailBody);
             Console.WriteLine("== ✈️ Sending Subscriber Email ==");

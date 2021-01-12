@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CreationalPatterns.AbstractFactory.Menus {
     public class VegetarianDessertMenu : IMenu {
-        public List<string> GetMenuIngredients()
+        public List<string> MakeShoppingList()
             => new List<string> { "oranges", "dark chocolate", "blackberries" };
 
         public void PrintDescription() 

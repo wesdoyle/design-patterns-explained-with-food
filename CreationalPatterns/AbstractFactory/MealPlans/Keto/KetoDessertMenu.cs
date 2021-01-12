@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CreationalPatterns.AbstractFactory.Menus {
     public class KetoDessertMenu : IMenu {
-        public List<string> GetMenuIngredients()
+        public List<string> MakeShoppingList()
             => new List<string> { "peanut butter", "dark chocolate", "ricotta" };
 
         public void PrintDescription() 
