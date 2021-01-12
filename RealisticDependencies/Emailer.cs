@@ -17,7 +17,9 @@ namespace RealisticDependencies {
     public class Emailer : ISendsEmails {
         public async Task SendMessage(EmailMessage message) {
             await Task.Delay(1000);
-            Console.WriteLine($"Sent email to {message.Content}.");
+            Console.WriteLine(
+                $"Sent email to {message.To} " +
+                $"with Message: {message.Content}.");
         }
     }
 }
