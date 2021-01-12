@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AbstractFactory\" />
     <Folder Include="Builder\" />
     <Folder Include="Singleton\" />
     <Folder Include="Prototype\" />
