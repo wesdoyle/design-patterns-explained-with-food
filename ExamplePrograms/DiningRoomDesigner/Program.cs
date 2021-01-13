@@ -4,6 +4,7 @@ using CreationalPatterns.Prototype.DiningRoomIcons.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 
 namespace DiningRoomDesigner {
     class Program {
@@ -47,6 +48,13 @@ namespace DiningRoomDesigner {
             if (numberOfSeatCushionsToOrder == 0) {
                 Console.WriteLine("No chairs in the design take seat cushions.");
             }
+
+            Console.WriteLine("Chair Object HashCodes:");
+            chairPrototype.GetHashCode();
+            Console.WriteLine(chair_1.GetHashCode());
+            Console.WriteLine(chair_2.GetHashCode());
+            Console.WriteLine(chair_3.GetHashCode());
+            Console.WriteLine(chair_4.GetHashCode());
         }
     }
 }

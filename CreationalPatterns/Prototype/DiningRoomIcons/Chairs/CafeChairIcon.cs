@@ -3,8 +3,7 @@
         public bool HasSeatCushions => false;
 
         public IDeepCloneable DeepClone() {
-            CafeChairIcon cafeChairIcon = null;
-            return cafeChairIcon.DeepClone();
+            return this.CloneJson();
         }
     }
 }
