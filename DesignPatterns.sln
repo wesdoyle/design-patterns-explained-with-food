@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMealPlanner", "Exampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BakeryPurchaseOrderSystem", "ExamplePrograms\BakeryPurchaseOrderSystem\BakeryPurchaseOrderSystem.csproj", "{E6073D46-A944-48A1-97DE-D65A8B87A21B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningRoomDesigner", "ExamplePrograms\DiningRoomDesigner\DiningRoomDesigner.csproj", "{5F48CA46-0CFC-4EDC-8151-E5244731C216}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,18 @@ Global
 		{E6073D46-A944-48A1-97DE-D65A8B87A21B}.Release|x64.Build.0 = Release|Any CPU
 		{E6073D46-A944-48A1-97DE-D65A8B87A21B}.Release|x86.ActiveCfg = Release|Any CPU
 		{E6073D46-A944-48A1-97DE-D65A8B87A21B}.Release|x86.Build.0 = Release|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Debug|x64.Build.0 = Debug|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Debug|x86.Build.0 = Debug|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Release|x64.ActiveCfg = Release|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Release|x64.Build.0 = Release|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Release|x86.ActiveCfg = Release|Any CPU
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,6 +152,7 @@ Global
 		{310B82A1-A561-4847-A30C-2F6035750F0B} = {49937DD2-028B-41AD-82E6-864A3EE738B2}
 		{C20C8088-8E10-4F15-8043-E0A82C572EB1} = {49937DD2-028B-41AD-82E6-864A3EE738B2}
 		{E6073D46-A944-48A1-97DE-D65A8B87A21B} = {49937DD2-028B-41AD-82E6-864A3EE738B2}
+		{5F48CA46-0CFC-4EDC-8151-E5244731C216} = {49937DD2-028B-41AD-82E6-864A3EE738B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C30E650-D1E1-405B-9105-7ED9590CB0EC}
