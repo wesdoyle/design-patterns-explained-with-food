@@ -5,10 +5,10 @@ using static CreationalPatterns.Builder.Models;
 
 namespace BakeryPurchaseOrderSystem {
     public class Program {
-        static void Main(string[] args) {
+        private static void Main(string[] args) {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            PurchaseOrderBuilder orderBuilder = new PurchaseOrderBuilder();
+            var orderBuilder = new PurchaseOrderBuilder();
 
             var breadSupplier = new Supplier("Bulk Food Depot", "orders@example.com", "Doug");
 
@@ -17,6 +17,7 @@ namespace BakeryPurchaseOrderSystem {
                 new LineItem("salt", 2, 0.3m),
                 new LineItem("yeast", 8, 0.75m),
             };
+
 
             PurchaseOrder breadSuppliesOrder = orderBuilder
                 .WithId("b_123")

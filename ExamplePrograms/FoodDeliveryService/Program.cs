@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 
 namespace FoodDeliveryService {
-    public class Program {
+    internal class Program {
 
         /// <summary>
         /// This example uses the Factory Method creational pattern to help fulfill a Food Delivery order
@@ -17,7 +17,7 @@ namespace FoodDeliveryService {
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static int Main(string[] args) {
+        private static int Main(string[] args) {
 
             Console.WriteLine("Please enter a delivery type.");
 

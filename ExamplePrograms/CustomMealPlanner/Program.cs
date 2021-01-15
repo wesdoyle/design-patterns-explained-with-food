@@ -5,7 +5,7 @@ using System;
 using System.Threading.Tasks;
 
 namespace CustomMealPlanner {
-    class Program {
+    internal class Program {
         /// <summary>
         /// This example uses the Abstract Factory creational pattern to help fulfill a meal planning application 
         /// for customers who wish to follow a specific type of diet.  Depending on the customer's diet,
@@ -20,7 +20,7 @@ namespace CustomMealPlanner {
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        static async Task Main(string[] args) {
+        private static async Task Main(string[] args) {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             Console.WriteLine("Please enter customer email.");

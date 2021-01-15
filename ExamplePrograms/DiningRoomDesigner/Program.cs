@@ -4,10 +4,9 @@ using CreationalPatterns.Prototype.DiningRoomIcons.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 
 namespace DiningRoomDesigner {
-    class Program {
+    internal class Program {
         /// <summary>
         /// This example uses the Prototype creational pattern to help build a hypothetical Dining Room Designer.
         /// Users of the application can copy icons representing furniture to compose collections of objects at runtime.
@@ -21,7 +20,7 @@ namespace DiningRoomDesigner {
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        static void Main(string[] args) {
+        private static void Main(string[] args) {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             // Construct prototype instances of furniture icons and a PrototypeFactory.
@@ -30,17 +29,17 @@ namespace DiningRoomDesigner {
             var roomDesigner = new PrototypeFactory(tablePrototype, chairPrototype);
 
             // Use the RoomDesigner to create instances of furniture icons.
-            IChairIcon chair_1 = roomDesigner.CloneChair();
-            IChairIcon chair_2 = roomDesigner.CloneChair();
-            IChairIcon chair_3 = roomDesigner.CloneChair();
-            IChairIcon chair_4 = roomDesigner.CloneChair();
-            ITableIcon table_1 = roomDesigner.CloneTable();
+            var chair1 = roomDesigner.CloneChair();
+            var chair2 = roomDesigner.CloneChair();
+            var chair3 = roomDesigner.CloneChair();
+            var chair4 = roomDesigner.CloneChair();
+            var table1 = roomDesigner.CloneTable();
 
-            var chairs = new List<IChairIcon>() { chair_1, chair_2, chair_3, chair_4 };
+            var chairs = new List<IChairIcon> { chair1, chair2, chair3, chair4 };
 
             var numberOfSeatCushionsToOrder = chairs.Count(chair => chair.HasSeatCushions);
-            var numberOfTableLegs = table_1.GetTableNumberOfLegs();
-            var tableShape = table_1.GetTableTopShape();
+            var numberOfTableLegs = table1.GetTableNumberOfLegs();
+            var tableShape = table1.GetTableTopShape();
 
             Console.WriteLine($"Current room design state includes a {tableShape}-shaped " +
                 $"table with {numberOfTableLegs} legs.");
@@ -49,12 +48,13 @@ namespace DiningRoomDesigner {
                 Console.WriteLine("No chairs in the design take seat cushions.");
             }
 
+            Console.WriteLine("Chair Prototype Object HashCode:");
+            Console.WriteLine(chairPrototype.GetHashCode());
             Console.WriteLine("Chair Object HashCodes:");
-            chairPrototype.GetHashCode();
-            Console.WriteLine(chair_1.GetHashCode());
-            Console.WriteLine(chair_2.GetHashCode());
-            Console.WriteLine(chair_3.GetHashCode());
-            Console.WriteLine(chair_4.GetHashCode());
+            Console.WriteLine(chair1.GetHashCode());
+            Console.WriteLine(chair2.GetHashCode());
+            Console.WriteLine(chair3.GetHashCode());
+            Console.WriteLine(chair4.GetHashCode());
         }
     }
 }
