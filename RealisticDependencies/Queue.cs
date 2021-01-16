@@ -2,7 +2,7 @@
 
 namespace RealisticDependencies {
     public class QueueMessage {
-        public string Content { get; private set; }
+        public string Content { get; }
         public QueueMessage(string content) {
             Content = content;
         }

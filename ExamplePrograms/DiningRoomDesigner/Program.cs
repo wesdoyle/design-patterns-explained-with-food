@@ -22,6 +22,7 @@ namespace DiningRoomDesigner {
         /// <returns></returns>
         private static void Main(string[] args) {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine("📝  Welcome Dining Room Designer!");
 
             // Construct prototype instances of furniture icons and a PrototypeFactory.
             var chairPrototype = new OakChairIcon();

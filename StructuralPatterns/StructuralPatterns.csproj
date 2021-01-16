@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Adapter\" />
-    <Folder Include="Decorator\" />
     <Folder Include="Facade\" />
     <Folder Include="Flyweight\" />
     <Folder Include="Proxy\" />

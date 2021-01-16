@@ -18,7 +18,9 @@ namespace FoodDeliveryService {
         /// <param name="args"></param>
         /// <returns></returns>
         private static int Main(string[] args) {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+            Console.WriteLine("🚚  Welcome to the Food Delivery Service!");
             Console.WriteLine("Please enter a delivery type.");
 
             var deliveryType = Console.ReadLine();

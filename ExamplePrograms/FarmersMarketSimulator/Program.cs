@@ -1,4 +1,5 @@
-﻿using RealisticDependencies.PaymentProcessing;
+﻿using System;
+using RealisticDependencies.PaymentProcessing;
 using StructuralPatterns.Bridge.Vendors;
 
 namespace FarmersMarketSimulator {
@@ -19,6 +20,8 @@ namespace FarmersMarketSimulator {
         /// <param name="args"></param>
         /// <returns></returns>
         private static void Main(string[] args) {
+            Console.WriteLine("🧑‍🌾  Welcome to the Farmer's Market!");
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             const string organicGardens = "Organic Gardens";
             const string olsenFarm = "Olsen Farm";
