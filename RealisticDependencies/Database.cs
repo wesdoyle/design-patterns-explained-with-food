@@ -2,7 +2,13 @@
 using System.Threading.Tasks;
 
 namespace RealisticDependencies {
-    public class Database {
+    public interface IDatabase {
+        Task Connect();
+        Task Disconnect();
+    }
+
+    public class Database : IDatabase
+    {
         private readonly string _connectionString;
 
         public Database(string connectionString) {
