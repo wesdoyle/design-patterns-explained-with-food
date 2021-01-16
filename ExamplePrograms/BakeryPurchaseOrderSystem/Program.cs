@@ -4,8 +4,18 @@ using System.Collections.Generic;
 using static CreationalPatterns.Builder.Models;
 
 namespace BakeryPurchaseOrderSystem {
-    public class Program {
-        private static void Main(string[] args) {
+    /// <summary>
+    /// Here we have a PO Builder that we use to generate purchase orders for our bakery.
+    /// Creating a new instance of a Purchase Order can be a confusing and lengthy process.
+    /// To improve the experience of instantiating new Purchase Order objects, and to make
+    /// the semantics more clear, we make use the Builder Pattern.
+    /// One of the design benefits of the Builder Pattern is that the algorithms for constructing
+    /// an object are independent of the parts that make up the object and how they're assembled.
+    /// In C#, we can also make it very easy to cast our Builder (where the construction logic is defined)
+    /// into the Type of object it builds using an implicit operator.
+    /// </summary>
+    internal class Program {
+        private static void Main() {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             var orderBuilder = new PurchaseOrderBuilder();

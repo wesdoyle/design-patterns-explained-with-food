@@ -7,7 +7,17 @@ using StructuralPatterns.Decorator.Decorators;
 
 namespace FrontOfHouseService {
     internal class Program {
-        private static async Task Main(string[] args) {
+        /// <summary>
+        /// Here we use a Decorator Pattern to stack the behavior of different notification agents.
+        /// We imagine we have a restaurant that notifies its patrons when a table is ready for them.
+        /// In addition to the in-house intercom system, patrons have the option to be notified by Text (SMS)
+        /// or Email.  We inherited this system from legacy codebase, and need an easy way to add new
+        /// behavior as new modes of communication arise.  The decorator allows us to create a stack of
+        /// modes of communication without affecting the behavior of existing objects, in a way that is
+        /// easy to compose when multiple options of combining communicating methods are desired.
+        /// </summary>
+        /// <returns></returns>
+        private static async Task Main() {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("👨‍🍳 Welcome to the Front-of-House Service!");
 

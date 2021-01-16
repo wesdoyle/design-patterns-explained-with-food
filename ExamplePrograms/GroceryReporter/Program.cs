@@ -3,7 +3,12 @@ using StructuralPatterns.Facade;
 
 namespace GroceryReporter {
     internal class Program {
-        private static void Main(string[] args) {
+        /// <summary>
+        /// Here we provide a simple Facade to work with more complex underlying logic provided by
+        /// a complex system involving much more business logic.  The facade provides a simple interface
+        /// to a complex subsystem. 
+        /// </summary>
+        private static void Main() {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("🛍 Welcome to the Grocery Reporting System");
 
