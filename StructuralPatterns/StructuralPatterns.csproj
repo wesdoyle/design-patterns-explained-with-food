@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Adapter\" />
-    <Folder Include="Proxy\" />
   </ItemGroup>
 
   <ItemGroup>

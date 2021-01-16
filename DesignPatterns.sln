@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryReporter", "ExampleP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStoreCityPlanningSimulation", "ExamplePrograms\GroceryStoreCityPlanningSimulation\GroceryStoreCityPlanningSimulation.csproj", "{CF8AA0EB-A6DA-4E15-9D62-BA463D9F75FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodBank", "ExamplePrograms\FoodBank\FoodBank.csproj", "{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -241,6 +243,18 @@ Global
 		{CF8AA0EB-A6DA-4E15-9D62-BA463D9F75FE}.Release|x64.Build.0 = Release|Any CPU
 		{CF8AA0EB-A6DA-4E15-9D62-BA463D9F75FE}.Release|x86.ActiveCfg = Release|Any CPU
 		{CF8AA0EB-A6DA-4E15-9D62-BA463D9F75FE}.Release|x86.Build.0 = Release|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Debug|x64.Build.0 = Debug|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Debug|x86.Build.0 = Debug|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Release|x64.ActiveCfg = Release|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Release|x64.Build.0 = Release|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Release|x86.ActiveCfg = Release|Any CPU
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -258,6 +272,7 @@ Global
 		{785D5708-8B3F-40A6-A9C6-A57AE71B9ACF} = {49937DD2-028B-41AD-82E6-864A3EE738B2}
 		{F95E93B6-140B-4C9C-9A0D-9BEA702AF4AB} = {49937DD2-028B-41AD-82E6-864A3EE738B2}
 		{CF8AA0EB-A6DA-4E15-9D62-BA463D9F75FE} = {49937DD2-028B-41AD-82E6-864A3EE738B2}
+		{7A36DF3D-8033-49C1-8F4B-8C8AF861231A} = {49937DD2-028B-41AD-82E6-864A3EE738B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C30E650-D1E1-405B-9105-7ED9590CB0EC}
