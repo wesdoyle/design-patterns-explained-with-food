@@ -14,12 +14,15 @@ namespace RealisticDependencies {
     public interface ISendsEmails {
         public Task SendMessage(EmailMessage message);
     }
+
     public class Emailer : ISendsEmails {
         public async Task SendMessage(EmailMessage message) {
             await Task.Delay(1000);
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(
                 $"Sent email to {message.To} " +
                 $"with Message: {message.Content}.");
+            Console.ResetColor();
         }
     }
 }

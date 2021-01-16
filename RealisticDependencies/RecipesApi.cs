@@ -22,22 +22,24 @@ namespace RealisticDependencies {
         /// <param name="recipe"></param>
         /// <returns></returns>
         public async Task<string> MakeHttpRequestForRecipe(string recipe) {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"Making HTTP request returning XML for: {recipe}");
+            Console.ResetColor();
+
             await Task.Delay(2000);
             var databaseResponse = _database[recipe];
             
             var xmlSerializer = new XmlSerializer(databaseResponse.GetType());
-            string xml;
 
             await using var stringWriter = new StringWriter();
-            await using XmlWriter writer = XmlWriter.Create(stringWriter, new XmlWriterSettings(){Async = true});
+            await using var writer = XmlWriter.Create(stringWriter, new XmlWriterSettings {Async = true});
             
             xmlSerializer.Serialize(writer, databaseResponse);
-            xml = stringWriter.ToString();
+            var xml = stringWriter.ToString();
             return xml;
         }
         
-        private Dictionary<string, Recipe> GenerateDatabase() {
+        private static Dictionary<string, Recipe> GenerateDatabase() {
             return new() {
                 { "mashed_potatoes", new Recipe("Mashed Potatoes", 30) },
                 { "green_beans", new Recipe("Steamed Green Beans", 10) },

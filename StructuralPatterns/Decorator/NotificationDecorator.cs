@@ -8,10 +8,6 @@ namespace StructuralPatterns.Decorator {
             Component = component;
         }
 
-        public void SetComponent(Notifier component) {
-            Component = component;
-        }
-
         public override async Task HandleTableReadyMessage() 
             => await Component.HandleTableReadyMessage();
     }

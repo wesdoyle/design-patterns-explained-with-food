@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RealisticDependencies;
 
@@ -12,6 +13,10 @@ namespace StructuralPatterns.Decorator.Decorators {
         }
 
         public override Task HandleTableReadyMessage() {
+            Task.FromResult(base.HandleTableReadyMessage());
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(":: SMS - Queueing up a text message");
+            Console.ResetColor();
             var message = new { customerName = "Sandi", message = "Your table is ready!" };
             var jsonMessage = JsonConvert.SerializeObject(message);
             var queueMessage = new QueueMessage(jsonMessage);

@@ -14,7 +14,9 @@ namespace RealisticDependencies {
 
     public class CloudQueue : IAmqpQueue {
         public void Add(QueueMessage item) {
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"Added to queue: {item.Content}");
+            Console.ResetColor();
         }
     }
 }
