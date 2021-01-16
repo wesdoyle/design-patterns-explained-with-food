@@ -20,9 +20,9 @@ namespace GroceryStoreCityPlanningSimulation {
             Console.WriteLine("--------------------------------------------------------------------");
 
             var rng = new Random();
-            const int simulationPopulationSize = 10;
+            const int simulationPopulationSize = 100_000;
             const int simulationHeightWidth = 100;
-            const int flyweightBankSize = 3;
+            const int flyweightBankSize = 5;
 
             var transportModes = new[] {
                 new TransportationMethod("walk", 1), 
@@ -62,21 +62,27 @@ namespace GroceryStoreCityPlanningSimulation {
                 member.PositionY = item2;
                 member.TransportationMethod = modeOfTransport;
                 member.Subdivision = subdivision;
-                AddMemberToSimulation(factory, member);
+                AddMemberToSimulation(factory, member, i);
             }
 
             Console.WriteLine("Simulation Complete.");
             Console.WriteLine("--------------------------------------------------------------------");
         }
 
-        private static void AddMemberToSimulation(SharedStateFactory factory, NeighborhoodMember member) {
+        private static void AddMemberToSimulation(
+            SharedStateFactory factory, 
+            NeighborhoodMember member, 
+            int i) {
 
             var flyweight = factory.GetFlyweight(new NeighborhoodMember {
                 TransportationMethod = member.TransportationMethod,
                 Subdivision = member.Subdivision
             });
 
-            // Here, our simulation client calculates extrinsic state and passes it to the flyweight's methods
+            // Here, our simulation client calculates extrinsic state and passes
+            // it to the flyweight's methods
+            if (i % 10_000 != 0) return;
+            Console.WriteLine($"Iteration # {i}");
             flyweight.RenderPosition(member);
         }
 

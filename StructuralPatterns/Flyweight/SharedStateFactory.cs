@@ -18,21 +18,21 @@ namespace StructuralPatterns.Flyweight {
                 key.Subdivision, 
                 key.TransportationMethod, 
             };
-            var hash = string.Join(":", elements);
-            Console.WriteLine($"Generated hash: {hash}");
-            return hash;
+            return string.Join(":", elements);
         }
 
         // Returns an existing NeighborhoodMemberSharedState with a given state or creates a new
         // one and adds it to the tracked flyweights.
         public NeighborhoodMemberSharedState GetFlyweight(NeighborhoodMember sharedState) {
             var key = GetSharedStateHash(sharedState);
-            if (!_flyweights.ContainsKey(key)) {
-                Console.WriteLine("FlyweightFactory: Can't find a flyweight, creating new one.");
-                _flyweights[key] = new NeighborhoodMemberSharedState(sharedState);
-            } else {
-                Console.WriteLine("FlyweightFactory: Reusing existing flyweight.");
+            if (_flyweights.ContainsKey(key)) {
+                return _flyweights[key];
             }
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("FlyweightFactory: Can't find a flyweight, creating new one.");
+            Console.ResetColor();
+            _flyweights[key] = new NeighborhoodMemberSharedState(sharedState);
             return _flyweights[key];
         }
 
