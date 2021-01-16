@@ -1,4 +1,5 @@
 ﻿using System;
+using RealisticDependencies.PaymentProcessing;
 
 namespace StructuralPatterns.Bridge {
     // Defines the interface for the control part of the two class hierarchies.
@@ -11,7 +12,7 @@ namespace StructuralPatterns.Bridge {
             _paymentProcessor = paymentProcessor;
         }
 
-        public virtual string ProcessCustomerPayment(int payment) {
+        public virtual string ProcessCustomerPayment(decimal payment, string vendorName) {
             throw new NotImplementedException("Please override this method in a concrete implementation");
         }
     }
