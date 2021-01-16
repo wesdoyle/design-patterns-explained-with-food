@@ -1,8 +1,8 @@
 ﻿using CreationalPatterns.AbstractFactory;
-using CreationalPatterns.AbstractFactory.MenuFactories;
 using RealisticDependencies;
 using System;
 using System.Threading.Tasks;
+using CreationalPatterns.AbstractFactory.MealPlanFactories;
 
 namespace CustomMealPlanner {
     internal class Program {

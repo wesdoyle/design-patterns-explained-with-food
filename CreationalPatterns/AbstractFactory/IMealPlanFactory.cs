@@ -1,6 +1,4 @@
-﻿using CreationalPatterns.AbstractFactory.Menus;
-
-namespace CreationalPatterns.AbstractFactory {
+﻿namespace CreationalPatterns.AbstractFactory {
     public interface IMealPlanFactory {
 
         // One of the things that our Meal Plan Factories do is generate different Menus 

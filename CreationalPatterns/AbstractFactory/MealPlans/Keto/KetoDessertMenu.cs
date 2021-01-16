@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CreationalPatterns.AbstractFactory.Menus {
+namespace CreationalPatterns.AbstractFactory.MealPlans.Keto {
     public class KetoDessertMenu : IMenu {
         public List<string> MakeShoppingList()
             => new List<string> { "peanut butter", "dark chocolate", "ricotta" };

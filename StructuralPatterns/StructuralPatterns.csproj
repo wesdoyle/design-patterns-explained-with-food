@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Adapter\" />
-    <Folder Include="Bridge\" />
     <Folder Include="Composite\" />
     <Folder Include="Decorator\" />
     <Folder Include="Facade\" />

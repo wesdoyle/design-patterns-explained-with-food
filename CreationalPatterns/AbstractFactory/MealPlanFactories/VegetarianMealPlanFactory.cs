@@ -1,7 +1,7 @@
-﻿using CreationalPatterns.AbstractFactory.Menus;
-using System;
+﻿using System;
+using CreationalPatterns.AbstractFactory.MealPlans.Vegetarian;
 
-namespace CreationalPatterns.AbstractFactory.MenuFactories {
+namespace CreationalPatterns.AbstractFactory.MealPlanFactories {
     public class VegetarianMealPlanFactory : IMealPlanFactory {
         public IMenu GenerateDessertsMenu() {
             Console.WriteLine("== 🥭 Generating a Vegetarian Dessert Menu... ==");
