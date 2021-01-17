@@ -28,7 +28,10 @@ namespace KombuchaOrderProcessor {
                 .SetNext(shippingLabeler)
                 .SetNext(receiptPrinter);
 
-            Console.WriteLine("Chain of Events: Cartonize > Run Loyalty Program > Print Shipping Labels > Print Receipt");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Process: Cartonize > Loyalty Program > Shipping Labels > Receipt");
+            Console.WriteLine("----------------------------------------------------------------");
+            Console.ResetColor();
 
             var request = new KombuchaSale(); 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using BehavioralPatterns.ChainOfResponsibility.Constants;
 using RealisticDependencies;
 
@@ -22,13 +23,14 @@ namespace BehavioralPatterns.ChainOfResponsibility.Handlers {
 
             Console.WriteLine("Emailing receipt for online order.");
             var emailReceipt = new EmailMessage("customer@example.com", "Here's your receipt.");
-            if (request.SpecialMessages.Any()) {
+            if (request.SpecialMessages != null && request.SpecialMessages.Any()) {
                 foreach (var message in request.SpecialMessages) {
                     emailReceipt.Content += $"| {message}";
                 }
             }
 
-            _emailer.SendMessage(emailReceipt);
+            var emailTask = _emailer.SendMessage(emailReceipt);
+            emailTask.Wait();
             Console.ResetColor();
             return base.Handle(request);
         }
