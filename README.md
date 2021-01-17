@@ -1,12 +1,12 @@
-# csharp-design-patterns-by-example
+# Design Patterns Explained with Food 🥕
 
-GOF Design Patterns in C# with working examples inspired by food.
+GOF Design Patterns in C# with working examples inspired by food
 
 This repository was made as a way to demonstrate and learn using moderately realistic examples of the Gang of Four Design Patterns (Design Patterns - Elements of Reusable Object-Oriented Software).
 
 ## Motivation
 
-Many examples of these patterns elsewhere avoid including typical dependencies like Databases, AMQP Queues, external services for things like Email and HTTP APIs.  The projects in this repo contain mock versions of these types of dependencies incorporated into moderately-realistic business scenarios.  The examples are intended to be lean enough so that the principal benefit of each pattern can be learned, but complex enough to avoid oversimplified scenarios.
+Many examples of these patterns as taught online typically avoid incorporating dependencies like Databases, AMQP Queues, external services for things like Email and HTTP APIs.  This makes it easier to demonstrate the core motivation of the design patterns, but also makes it more difficult to imagine real-world use cases. The projects in this repo contain mock versions of these types of dependencies incorporated into various plausible business scenarios.  The examples are intended to be lean enough so that the principal benefit of each pattern is evident, but complex enough to avoid oversimplified scenarios.
 
 ## Example Programs
 
@@ -26,16 +26,15 @@ Every design pattern has a corresponding .NET 5.0 console application.
 | Facade  | Structural  | Grocery Store Report  | The underlying service providers that help us put our Grocery Store Reports are complex and hard to use.  We want to hide that complexity behind an easy-to-use interface for use in our client code |
 | Flyweight  | Structural  | Grocery Store City Planner  | As part of our city planning efforts, we want to build a grocery store in an optimal location. We are building a simulation that simulates the location and movement of our citie's inhabitants, which are represented by a number of different objects.  Some of these objects represent unchanging, static data that is shared by large portions of other inhabitants, like neighborhood and mode of travel. Some of the data is intrinsic to the inhabitant itself during the simulation, like its latitude and longitude.  A flyweight can be used to save memory during the simulation by caching the extrinsic data as a shared resource among the hundreds of thousands of inhabitant objects. |
 | Proxy  | Structural  | Food Bank Donation Processor | Our Food Bank Processor uses an off-the-shelf system for accepting food donations.  However, we want to control access to this resource while maintaining the same interface.  We have the need to log use of the resource and prevent certain items from being donated, so we use a Proxy.  |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
-|   |   |   |   |
+| Chain of Responsibility  | Behavioral  |   |   |
+| Command  | Behavioral  |   |   |
+| Interpreter  | Behavioral  |   |   |
+| Iterator  | Behvavioral  |   |   |
+| Mediator  | Behavioral  |   |   |
+| Memento  | Behavioral  |   |   |
+| Observer  | Behavioral  |   |   |
+| State  | Behavioral  |   |   |
+| Strategy  | Behavioral  |   |   |
+| Template Method  | Behavioral  |   |   |
+| Visitor  | Behavioral  |   |   |
+
