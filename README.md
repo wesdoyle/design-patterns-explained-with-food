@@ -26,11 +26,11 @@ Every design pattern has a corresponding .NET 5.0 console application.
 | Facade  | Structural  | Grocery Store Report  | The underlying service providers that help us put our Grocery Store Reports are complex and hard to use.  We want to hide that complexity behind an easy-to-use interface for use in our client code |
 | Flyweight  | Structural  | Grocery Store City Planner  | As part of our city planning efforts, we want to build a grocery store in an optimal location. We are building a simulation that simulates the location and movement of our citie's inhabitants, which are represented by a number of different objects.  Some of these objects represent unchanging, static data that is shared by large portions of other inhabitants, like neighborhood and mode of travel. Some of the data is intrinsic to the inhabitant itself during the simulation, like its latitude and longitude.  A flyweight can be used to save memory during the simulation by caching the extrinsic data as a shared resource among the hundreds of thousands of inhabitant objects. |
 | Proxy  | Structural  | Food Bank Donation Processor | Our Food Bank Processor uses an off-the-shelf system for accepting food donations.  However, we want to control access to this resource while maintaining the same interface.  We have the need to log use of the resource and prevent certain items from being donated, so we use a Proxy.  |
-| Chain of Responsibility  | Behavioral  |   |   |
+| Chain of Responsibility  | Behavioral  | Kombucha Order Processor  | Our order pipeline for kombucha customers is pretty straightforward.  We cartonize, query a loyalty program, print shipping labels if the order is online, and email or print a receipt.  Some of the details of these steps change depending on some state - like whether the order is online, whether or not the customer is a loyalty member.  For instance, we want to print ads on receipts for non-loyalty-member customers.  We can use the chain of responsibility pattern to compose and execute each stage of the order processing pipeline.  |
 | Command  | Behavioral  | Composter Sign Up Form  |   |
 | Interpreter  | Behavioral  |   |   |
 | Iterator  | Behvavioral  | Best Restaurant Finder  |   |
-| Mediator  | Behavioral  |   |   |
+| Mediator  | Behavioral  | Food Truck Coordinator  |   |
 | Memento  | Behavioral  |   |   |
 | Observer  | Behavioral  | Diet Plan Tracking App  |   |
 | State  | Behavioral  |   |   |
