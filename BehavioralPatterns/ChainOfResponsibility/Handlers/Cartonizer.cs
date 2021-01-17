@@ -15,7 +15,6 @@ namespace BehavioralPatterns.ChainOfResponsibility.Handlers {
             Console.ResetColor();
 
             return base.Handle(request);
-
         }
     }
 }
