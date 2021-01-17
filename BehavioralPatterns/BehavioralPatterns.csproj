@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Command\" />
     <Folder Include="Interpreter\" />
     <Folder Include="Iterator\" />
     <Folder Include="Mediator\" />

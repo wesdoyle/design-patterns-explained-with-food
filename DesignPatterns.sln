@@ -17,11 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{1A71
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExamplePrograms", "ExamplePrograms", "{49937DD2-028B-41AD-82E6-864A3EE738B2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BehavioralPatterns", "BehavioralPatterns", "{3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BehavioralExamples", "BehavioralExamples", "{3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreationalPatterns", "CreationalPatterns", "{21BD291C-3685-4A3B-BC12-4FF60E1EB1CC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CreationalExamples", "CreationalExamples", "{21BD291C-3685-4A3B-BC12-4FF60E1EB1CC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StructuralPatterns", "StructuralPatterns", "{AA4B4838-4C00-46D0-9639-22765EFE658A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StructuralExamples", "StructuralExamples", "{AA4B4838-4C00-46D0-9639-22765EFE658A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KombuchaOrderProcessor", "ExamplePrograms\BehavioralExamples\KombuchaOrderProcessor\KombuchaOrderProcessor.csproj", "{0C0D9FC1-0057-4398-A2F3-B28E6F971F50}"
 EndProject
@@ -48,6 +48,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSearch", "ExamplePrograms\StructuralExamples\RecipeSearch\RecipeSearch.csproj", "{CCCE40C0-F501-42C9-B36B-B80C8CF3F51F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaCartonizer", "ExamplePrograms\StructuralExamples\TeaCartonizer\TeaCartonizer.csproj", "{B02FC2F3-E1AA-4799-80C7-4D5B54036CD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeighborhoodComposterSignUpForm", "ExamplePrograms\BehavioralExamples\NeighborhoodComposterSignUpForm\NeighborhoodComposterSignUpForm.csproj", "{2D34F9AE-5913-4081-A392-2666E6F2B11A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -275,6 +277,18 @@ Global
 		{B02FC2F3-E1AA-4799-80C7-4D5B54036CD2}.Release|x64.Build.0 = Release|Any CPU
 		{B02FC2F3-E1AA-4799-80C7-4D5B54036CD2}.Release|x86.ActiveCfg = Release|Any CPU
 		{B02FC2F3-E1AA-4799-80C7-4D5B54036CD2}.Release|x86.Build.0 = Release|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Debug|x64.Build.0 = Debug|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Debug|x86.Build.0 = Debug|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Release|x64.ActiveCfg = Release|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Release|x64.Build.0 = Release|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Release|x86.ActiveCfg = Release|Any CPU
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -297,6 +311,7 @@ Global
 		{E987935E-6A66-4FBA-97C2-8F3076C48F1F} = {AA4B4838-4C00-46D0-9639-22765EFE658A}
 		{CCCE40C0-F501-42C9-B36B-B80C8CF3F51F} = {AA4B4838-4C00-46D0-9639-22765EFE658A}
 		{B02FC2F3-E1AA-4799-80C7-4D5B54036CD2} = {AA4B4838-4C00-46D0-9639-22765EFE658A}
+		{2D34F9AE-5913-4081-A392-2666E6F2B11A} = {3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C30E650-D1E1-405B-9105-7ED9590CB0EC}

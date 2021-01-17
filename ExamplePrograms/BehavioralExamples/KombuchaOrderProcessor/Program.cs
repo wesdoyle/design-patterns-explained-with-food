@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.Cache;
 using BehavioralPatterns.ChainOfResponsibility;
 using BehavioralPatterns.ChainOfResponsibility.Constants;
 using BehavioralPatterns.ChainOfResponsibility.Handlers;
@@ -16,6 +15,8 @@ namespace KombuchaOrderProcessor {
         /// Pattern to process each stage of the sale accordingly.
         /// </summary>
         private static void Main() {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
             var emailer = new Emailer();
 
             var cartonizer = new Cartonizer();
