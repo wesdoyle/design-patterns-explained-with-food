@@ -22,7 +22,7 @@ namespace RealisticDependencies {
 
         public void Add(QueueMessage item) {
             Thread.Sleep(250);
-            _logger.LogInfo("$Added to queue: {item.Content}", ConsoleColor.Magenta);
+            _logger.LogInfo($"Added to queue: {item.Content}", ConsoleColor.Magenta);
         }
     }
 }
