@@ -18,8 +18,7 @@ namespace RealisticDependencies {
     /// <summary>
     /// Mock Api that returns Recipes in XML format
     /// </summary>
-    public class RecipesApi : IRecipesApi
-    {
+    public class RecipesApi : IRecipesApi {
         private readonly Dictionary<string, Recipe> _database;
         private readonly IApplicationLogger _logger;
 
@@ -34,11 +33,11 @@ namespace RealisticDependencies {
             var databaseResponse = _database[recipe];
             var xmlSerializer = new XmlSerializer(databaseResponse.GetType());
             await using var stringWriter = new StringWriter();
-            await using var writer = XmlWriter.Create(stringWriter, new XmlWriterSettings {Async = true});
+            await using var writer = XmlWriter.Create(stringWriter, new XmlWriterSettings { Async = true });
             xmlSerializer.Serialize(writer, databaseResponse);
             return stringWriter.ToString();
         }
-        
+
         private static Dictionary<string, Recipe> GenerateDatabase() {
             return new() {
                 { "mashed_potatoes", new Recipe("Mashed Potatoes", 30) },
@@ -47,13 +46,13 @@ namespace RealisticDependencies {
             };
         }
     }
-        
+
     public struct Recipe {
         public Recipe(string name, int prepTimeMinutes) {
             Name = name;
             PrepTimeMinutes = prepTimeMinutes;
         }
-        
+
         public string Name { get; set; }
         public int PrepTimeMinutes { get; set; }
     }
