@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\StructuralPatterns\StructuralPatterns.csproj" />
+    <ProjectReference Include="..\..\..\CreationalPatterns\CreationalPatterns.csproj" />
+    <ProjectReference Include="..\..\..\RealisticDependencies\RealisticDependencies.csproj" />
   </ItemGroup>
 
 </Project>

@@ -32,7 +32,7 @@ namespace FoodDeliveryService {
 
             try {
                 IAmqpQueue deliveryQueue = new CloudQueue();
-                DeliveryCreator deliveryCreator = BuildDeliveryCreator(deliveryType, deliveryQueue);
+                var deliveryCreator = BuildDeliveryCreator(deliveryType, deliveryQueue);
                 deliveryCreator.QueueVehicleForDelivery();
 
             } catch (Exception e) {

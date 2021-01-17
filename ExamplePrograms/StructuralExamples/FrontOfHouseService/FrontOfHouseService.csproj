@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CreationalPatterns\CreationalPatterns.csproj" />
+    <ProjectReference Include="..\..\..\StructuralPatterns\StructuralPatterns.csproj" />
   </ItemGroup>
 
 </Project>
