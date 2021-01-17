@@ -32,9 +32,9 @@ Every design pattern has a corresponding .NET 5.0 console application.
 | Iterator  | Behvavioral  | Best Restaurant Finder  |   |
 | Mediator  | Behavioral  |   |   |
 | Memento  | Behavioral  |   |   |
-| Observer  | Behavioral  |   |   |
+| Observer  | Behavioral  | Diet Plan Tracking App  |   |
 | State  | Behavioral  |   |   |
 | Strategy  | Behavioral  |   |   |
 | Template Method  | Behavioral  | Cookbook Printer  | We run a cookbook printing business for self-published chefs.  Much of the process used to print the recpies in our cookbooks is exactly the same, but often differs slightly depending on the recipe.  We use a template method with default behavior and virtual behavior overridden (either forcibly or optionally) by concrete recipes using inheritance. |
-| Visitor  | Behavioral  |   |   |
+| Visitor  | Behavioral  | Farmer's Market Research  | We work for a company that provides sales and marketing reports for regional Farmer's Markets.  Different Farmer's Markets and their vendors have their own logic for generating data we can use for our reports, but we need to be able to generate our reports without significantly modifying any of the existing data-producing classes.  We instead make them 'visitable' by our own classes, which can in turn use them as needed to generate custom reports for sales and marketing teams. |
 
