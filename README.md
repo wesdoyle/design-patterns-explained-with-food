@@ -6,7 +6,7 @@ This repository was made as a way to demonstrate and learn using moderately real
 
 ## Motivation
 
-Many examples of these patterns as taught online typically avoid incorporating __[external dependencies](https://github.com/wesdoyle/design-patterns-explained-with-food/tree/main/RealisticDependencies)__ like Databases, AMQP Queues, external services for things like Email and HTTP APIs.  While avoiding adding these dependencies to example code makes it easier to demonstrate the core motivation of the design patterns, it also more difficult to imagine real-world scenarios where these patterns might be used. The projects in this repo contain mock versions of these types of dependencies incorporated into various plausible business scenarios.  The examples are intended to be lean enough so that the principal benefit of each pattern is evident, but complex enough to avoid oversimplified scenarios.
+Many examples of these patterns as taught online typically avoid incorporating __[external dependencies](https://github.com/wesdoyle/design-patterns-explained-with-food/tree/main/RealisticDependencies)__ like Databases, AMQP queues, external services for things like email and HTTP APIs.  While avoiding adding these dependencies to example code makes it easier to demonstrate the core motivation of the design patterns, it also makes it more difficult to imagine real-world scenarios where these patterns might be used. The projects in this repo contain mock versions of these types of dependencies incorporated into various plausible business scenarios.  The examples are intended to be lean enough so that the principal benefit of each pattern is evident, but complex enough to avoid oversimplified scenarios.
 
 ## Example Programs
 
