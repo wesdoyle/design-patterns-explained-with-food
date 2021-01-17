@@ -6,7 +6,7 @@ using BehavioralPatterns.TemplateMethod.Recipes;
 namespace CookbookPrinter {
     internal class Program {
         /// <summary>
-        /// We run a cookbook-printing business, where amateur chefs send in their favorite home-made
+        /// We run a cookbook printing business, where amateur chefs send in their favorite home-made
         /// recipes to be printed in self-published family cookbooks.
         /// Many of the steps in our printing press operations for cookbooks are the same,
         /// except for the details of the concrete recipes send in by our clients.  We can leverage a template
