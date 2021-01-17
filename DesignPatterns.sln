@@ -59,6 +59,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietPlanTracker", "ExampleP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FarmersMarketResearch", "ExamplePrograms\BehavioralExamples\FarmersMarketResearch\FarmersMarketResearch.csproj", "{5FBD2740-0119-47F1-8F7D-F9371AD4348E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookbookPrinter", "ExamplePrograms\BehavioralExamples\CookbookPrinter\CookbookPrinter.csproj", "{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -345,6 +347,18 @@ Global
 		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Release|x64.Build.0 = Release|Any CPU
 		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Release|x86.ActiveCfg = Release|Any CPU
 		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Release|x86.Build.0 = Release|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Debug|x64.Build.0 = Debug|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Debug|x86.Build.0 = Debug|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Release|x64.ActiveCfg = Release|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Release|x64.Build.0 = Release|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Release|x86.ActiveCfg = Release|Any CPU
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -372,6 +386,7 @@ Global
 		{139A27DA-5EAA-424B-AED5-0441F5266027} = {3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}
 		{494207A3-E6AE-4113-9111-D7F4432C523F} = {3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}
 		{5FBD2740-0119-47F1-8F7D-F9371AD4348E} = {3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}
+		{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B} = {3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C30E650-D1E1-405B-9105-7ED9590CB0EC}
