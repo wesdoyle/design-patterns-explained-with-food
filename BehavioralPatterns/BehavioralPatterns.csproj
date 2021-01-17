@@ -6,14 +6,10 @@
 
   <ItemGroup>
     <Folder Include="Interpreter\" />
-    <Folder Include="Iterator\" />
-    <Folder Include="Mediator\" />
-    <Folder Include="Memento\" />
     <Folder Include="Visitor\" />
     <Folder Include="TemplateMethod\" />
     <Folder Include="Strategy\" />
     <Folder Include="State\" />
-    <Folder Include="Observer\" />
   </ItemGroup>
 
   <ItemGroup>
