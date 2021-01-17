@@ -23,7 +23,7 @@ namespace CustomMealPlanner {
         private static async Task Main(string[] args) {
             var logger = new ConsoleLogger();
 
-            Console.WriteLine("Please enter customer email.");
+            logger.LogInfo("Please enter customer email.");
             var customerEmail = Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(customerEmail)) {

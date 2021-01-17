@@ -1,6 +1,7 @@
 ﻿using CreationalPatterns.Prototype;
 using CreationalPatterns.Prototype.DiningRoomIcons.Chairs;
 using CreationalPatterns.Prototype.DiningRoomIcons.Tables;
+using RealisticDependencies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,16 +19,16 @@ namespace DiningRoomDesigner {
         /// to expose a public API for creating complex underlying objects is crucial to our being able to use these objects
         /// in our client-side code.
         /// </summary>
-        /// <param name="args"></param>
         /// <returns></returns>
-        private static void Main(string[] args) {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine("📝  Welcome Dining Room Designer!");
+        private static void Main() {
+            var logger = new ConsoleLogger();
+
+            logger.LogInfo("📝  Welcome Dining Room Designer!");
 
             // Construct prototype instances of furniture icons and a PrototypeFactory.
             var chairPrototype = new OakChairIcon();
             var tablePrototype = new OakTableIcon();
-            var roomDesigner = new PrototypeFactory(tablePrototype, chairPrototype);
+            var roomDesigner = new PrototypeFactory(tablePrototype, chairPrototype, logger);
 
             // Use the RoomDesigner to create instances of furniture icons.
             var chair1 = roomDesigner.CloneChair();
@@ -42,20 +43,21 @@ namespace DiningRoomDesigner {
             var numberOfTableLegs = table1.GetTableNumberOfLegs();
             var tableShape = table1.GetTableTopShape();
 
-            Console.WriteLine($"Current room design state includes a {tableShape}-shaped " +
+            logger.LogInfo($"Current room design state includes a {tableShape}-shaped " +
                 $"table with {numberOfTableLegs} legs.");
 
             if (numberOfSeatCushionsToOrder == 0) {
-                Console.WriteLine("No chairs in the design take seat cushions.");
+                logger.LogInfo("No chairs in the design take seat cushions.");
             }
 
-            Console.WriteLine("Chair Prototype Object HashCode:");
-            Console.WriteLine(chairPrototype.GetHashCode());
-            Console.WriteLine("Chair Object HashCodes:");
-            Console.WriteLine(chair1.GetHashCode());
-            Console.WriteLine(chair2.GetHashCode());
-            Console.WriteLine(chair3.GetHashCode());
-            Console.WriteLine(chair4.GetHashCode());
+            logger.LogInfo("Chair Prototype Object HashCode:");
+            logger.LogInfo(chairPrototype.GetHashCode().ToString(), ConsoleColor.Yellow);
+
+            logger.LogInfo("Chair Object HashCodes:");
+            logger.LogInfo(chair1.GetHashCode().ToString(), ConsoleColor.Yellow);
+            logger.LogInfo(chair2.GetHashCode().ToString(), ConsoleColor.Yellow);
+            logger.LogInfo(chair3.GetHashCode().ToString(), ConsoleColor.Yellow);
+            logger.LogInfo(chair4.GetHashCode().ToString(), ConsoleColor.Yellow);
         }
     }
 }

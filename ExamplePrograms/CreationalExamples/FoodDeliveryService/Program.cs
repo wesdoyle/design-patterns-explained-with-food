@@ -20,6 +20,7 @@ namespace FoodDeliveryService {
         private static int Main(string[] args) {
             var logger = new ConsoleLogger();
             logger.LogInfo("🚚  Welcome to the Food Delivery Service!");
+            logger.LogInfo("------------------------------------------");
             logger.LogInfo("Please enter a delivery type.");
 
             var deliveryType = Console.ReadLine();
