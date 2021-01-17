@@ -6,9 +6,9 @@
 // - Scott Meyers https://www.artima.com/cppsource/top_cpp_aha_moments.html
 
 namespace BehavioralPatterns.Visitor {
-    public interface IVisitor {
-        public void Visit(FloristOrderProcessor order);
-        public void Visit(BakeryOrderProcessor orderProcessor);
-        public void Visit(VegetableOrderProcessor orderProcessor);
+    public interface IVisitor<out T> where T: class {
+        public T Visit(FloristDataProcessor processor);
+        public T Visit(BakeryDataProcessor orderProcessor);
+        public T Visit(FarmerDataProcessor orderProcessor);
     }
 }
