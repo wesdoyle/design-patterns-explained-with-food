@@ -49,13 +49,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeSearch", "ExampleProg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaCartonizer", "ExamplePrograms\StructuralExamples\TeaCartonizer\TeaCartonizer.csproj", "{B02FC2F3-E1AA-4799-80C7-4D5B54036CD2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeighborhoodComposterSignUpForm", "ExamplePrograms\BehavioralExamples\NeighborhoodComposterSignUpForm\NeighborhoodComposterSignUpForm.csproj", "{2D34F9AE-5913-4081-A392-2666E6F2B11A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComposterSignUpForm", "ExamplePrograms\BehavioralExamples\NeighborhoodComposterSignUpForm\ComposterSignUpForm.csproj", "{2D34F9AE-5913-4081-A392-2666E6F2B11A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestRestaurantFinder", "ExamplePrograms\BehavioralExamples\BestRestaurantFinder\BestRestaurantFinder.csproj", "{607AF2B3-529F-46B6-B629-7009FADF36AF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodTruckCoordinator", "ExamplePrograms\BehavioralExamples\FoodTruckCoordinator\FoodTruckCoordinator.csproj", "{139A27DA-5EAA-424B-AED5-0441F5266027}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietPlanTracker", "ExamplePrograms\BehavioralExamples\DietPlanTracker\DietPlanTracker.csproj", "{494207A3-E6AE-4113-9111-D7F4432C523F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FarmersMarketResearch", "ExamplePrograms\BehavioralExamples\FarmersMarketResearch\FarmersMarketResearch.csproj", "{5FBD2740-0119-47F1-8F7D-F9371AD4348E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -331,6 +333,18 @@ Global
 		{494207A3-E6AE-4113-9111-D7F4432C523F}.Release|x64.Build.0 = Release|Any CPU
 		{494207A3-E6AE-4113-9111-D7F4432C523F}.Release|x86.ActiveCfg = Release|Any CPU
 		{494207A3-E6AE-4113-9111-D7F4432C523F}.Release|x86.Build.0 = Release|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Debug|x64.Build.0 = Debug|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Debug|x86.Build.0 = Debug|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Release|x64.ActiveCfg = Release|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Release|x64.Build.0 = Release|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Release|x86.ActiveCfg = Release|Any CPU
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -357,6 +371,7 @@ Global
 		{607AF2B3-529F-46B6-B629-7009FADF36AF} = {3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}
 		{139A27DA-5EAA-424B-AED5-0441F5266027} = {3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}
 		{494207A3-E6AE-4113-9111-D7F4432C523F} = {3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}
+		{5FBD2740-0119-47F1-8F7D-F9371AD4348E} = {3523D27A-FDC9-428B-BB43-1EF72ADE8BCB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C30E650-D1E1-405B-9105-7ED9590CB0EC}

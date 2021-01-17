@@ -1,9 +1,11 @@
-﻿using BehavioralPatterns.Observer;
+﻿using System;
+using BehavioralPatterns.Observer;
 using BehavioralPatterns.Observer.Observers;
 
 namespace DietPlanTracker {
     internal class Program {
         private static void Main() {
+            Console.WriteLine("------------------------------------------------------------");
             // The client code.
             var subject = new Subject();
 

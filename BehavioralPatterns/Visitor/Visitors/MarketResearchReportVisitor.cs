@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using BehavioralPatterns.Visitor.Components;
+using BehavioralPatterns.Visitor.DataProcessors;
 
 namespace BehavioralPatterns.Visitor.Visitors {
     public class MarketResearchReportVisitor : IVisitor<MarketResearchReport> {
@@ -10,6 +10,10 @@ namespace BehavioralPatterns.Visitor.Visitors {
             var averageAge = (decimal) Math.Round(customerAges.Average(), 2);
             var youngestAge = customerAges.Min();
             var oldestAge = customerAges.Max();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Visiting Florist for Generating Market Report");
+            Console.ResetColor();
 
             return new MarketResearchReport {
                 NumberOfSamples = customerProfiles.Count,
@@ -26,6 +30,10 @@ namespace BehavioralPatterns.Visitor.Visitors {
             var youngestAge = customerAges.Min();
             var oldestAge = customerAges.Max();
 
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Visiting Bakery for Generating Market Report");
+            Console.ResetColor();
+
             return new MarketResearchReport {
                 NumberOfSamples = customerProfiles.Count,
                 AverageAge = averageAge,
@@ -38,7 +46,8 @@ namespace BehavioralPatterns.Visitor.Visitors {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Market research is not yet available for Farm Data");
             Console.ResetColor();
-            return new MarketResearchReport();
+            Console.WriteLine("\n");
+            return null;
         }
     }
 
@@ -59,6 +68,8 @@ namespace BehavioralPatterns.Visitor.Visitors {
             Console.WriteLine($"- Average Customer Age: {AverageAge}");
             Console.WriteLine($"- Oldest Customer: {OldestCustomer}");
             Console.WriteLine($"- Youngest Customer: {YoungestCustomer}");
+            Console.ResetColor();
+            Console.WriteLine("\n");
         }
     }
 }

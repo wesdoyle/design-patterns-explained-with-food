@@ -3,7 +3,7 @@ using BehavioralPatterns.Command;
 using BehavioralPatterns.Command.Commands;
 using RealisticDependencies;
 
-namespace NeighborhoodComposterSignUpForm {
+namespace ComposterSignUpForm {
     internal class Program {
         private static void Main() {
             var cloudQueue = new CloudQueue();

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using RealisticDependencies;
 using RealisticDependencies.Models;
 
-namespace BehavioralPatterns.Visitor.Components {
+namespace BehavioralPatterns.Visitor.DataProcessors {
     public class FloristDataProcessor : IVisitable<Report> {
         private readonly ISendsEmails _emailer;
         private readonly Database _database;

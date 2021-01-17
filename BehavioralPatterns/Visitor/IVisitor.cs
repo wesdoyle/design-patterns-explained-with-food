@@ -1,4 +1,4 @@
-﻿using BehavioralPatterns.Visitor.Components;
+﻿using BehavioralPatterns.Visitor.DataProcessors;
 
 // The Visitor Pattern has nothing to do with visitation.
 // Rather, it’s a way to design hierarchies so that new virtual-acting functions
