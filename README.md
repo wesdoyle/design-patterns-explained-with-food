@@ -27,14 +27,14 @@ Every design pattern has a corresponding .NET 5.0 console application.
 | Flyweight  | Structural  | Grocery Store City Planner  | As part of our city planning efforts, we want to build a grocery store in an optimal location. We are building a simulation that simulates the location and movement of our citie's inhabitants, which are represented by a number of different objects.  Some of these objects represent unchanging, static data that is shared by large portions of other inhabitants, like neighborhood and mode of travel. Some of the data is intrinsic to the inhabitant itself during the simulation, like its latitude and longitude.  A flyweight can be used to save memory during the simulation by caching the extrinsic data as a shared resource among the hundreds of thousands of inhabitant objects. |
 | Proxy  | Structural  | Food Bank Donation Processor | Our Food Bank Processor uses an off-the-shelf system for accepting food donations.  However, we want to control access to this resource while maintaining the same interface.  We have the need to log use of the resource and prevent certain items from being donated, so we use a Proxy.  |
 | Chain of Responsibility  | Behavioral  |   |   |
-| Command  | Behavioral  |   |   |
+| Command  | Behavioral  | Composter Sign Up Form  |   |
 | Interpreter  | Behavioral  |   |   |
-| Iterator  | Behvavioral  |   |   |
+| Iterator  | Behvavioral  | Best Restaurant Finder  |   |
 | Mediator  | Behavioral  |   |   |
 | Memento  | Behavioral  |   |   |
 | Observer  | Behavioral  |   |   |
 | State  | Behavioral  |   |   |
 | Strategy  | Behavioral  |   |   |
-| Template Method  | Behavioral  |   |   |
+| Template Method  | Behavioral  | Cookbook Printer  | We run a cookbook printing business for self-published chefs.  Much of the process used to print the recpies in our cookbooks is exactly the same, but often differs slightly depending on the recipe.  We use a template method with default behavior and virtual behavior overridden (either forcibly or optionally) by concrete recipes using inheritance. |
 | Visitor  | Behavioral  |   |   |
 
