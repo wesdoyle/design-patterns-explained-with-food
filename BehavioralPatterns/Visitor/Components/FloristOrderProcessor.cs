@@ -17,8 +17,8 @@ namespace BehavioralPatterns.Visitor.Components {
             Task.Run(ConnectToDatabase).Wait();
         }
 
-        private void ConnectToDatabase() {
-            throw new System.NotImplementedException();
+        private async Task ConnectToDatabase() {
+            await _database.Connect();
         }
 
         public async Task EmailReceipt() {
