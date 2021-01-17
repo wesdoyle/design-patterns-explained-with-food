@@ -1,5 +1,4 @@
-﻿using System;
-using RealisticDependencies;
+﻿using RealisticDependencies;
 using StructuralPatterns.Facade.GroceryStoreManager;
 
 namespace StructuralPatterns.Facade {
@@ -17,32 +16,39 @@ namespace StructuralPatterns.Facade {
         private readonly IReportGenerator _report;
         private readonly IVendorNotifier _vendors;
 
-        private readonly ISendsEmails _emailer = new Emailer();
-        private readonly IDatabase _database = new Database(Configuration.ConnectionString);
-        private readonly IAmqpQueue _queue = new CloudQueue();
-        private readonly IRecipesApi _api = new RecipesApi();
+        private readonly ISendsEmails _emailer = new Emailer(new ConsoleLogger());
+        private readonly IDatabase _database = new Database(Configuration.ConnectionString, new ConsoleLogger());
+        private readonly IAmqpQueue _queue = new CloudQueue(new ConsoleLogger());
+        private readonly IRecipesApi _api = new RecipesApi(new ConsoleLogger());
+        private readonly IApplicationLogger _logger = new ConsoleLogger();
 
         public DailyReporter() {
             _finance = new FinanceCalculator();
             _inventory = new InventoryManager(_emailer, _queue, _database, _api);
             _report =  new ReportGenerator();
             _vendors = new VendorNotifier(_database, _emailer);
+            _logger = new ConsoleLogger();
         }
 
         public void KickOffProduceReport() {
             _finance.CalculateMonthTotalRevenue();
             _inventory.ProcessCurrentInventoryReport();
+
             var vendors = _vendors.GetVendorsForDepartment("produce");
+
             foreach (var vendor in vendors) {
                 _vendors.NotifyVendorOfCurrentStock(vendor);
                 _finance.CalculateMonthTotalRevenueForVendor(vendor);
             }
+
             var report = new ReportGenerator.Report {
                 Title = "Daily Produce Report",
                 Description = "The daily produce report details..."
             };
+
             var reportLog = _report.GenerateReportLog(report);
-            Console.WriteLine(reportLog);
+
+            _logger.LogInfo(reportLog);
         }
     }
 }

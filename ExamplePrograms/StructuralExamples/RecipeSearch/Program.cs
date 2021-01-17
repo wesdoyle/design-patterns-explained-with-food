@@ -19,11 +19,12 @@ namespace RecipeSearch {
         /// <param name="args"></param>
         /// <returns></returns>
         private static async Task Main(string[] args) {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine("👩‍🍳  Aggregating Recipes...");
+            var logger = new ConsoleLogger();
+
+            logger.LogInfo("👩‍🍳  Aggregating Recipes from the API...");
 
             // The RecipesAPI Produces XML results
-            var recipesApi = new RecipesApi();
+            var recipesApi = new RecipesApi(logger);
 
             // Let's adapt it with our RecipeFinder adapter to produce JSON instead
             var recipeFinder = new RecipeFinder(recipesApi);
@@ -45,8 +46,9 @@ namespace RecipeSearch {
         }
 
         private static void PrintJsonRecipes(IEnumerable<Task<string>> recipes) {
+            var logger = new ConsoleLogger();
             foreach (var recipe in recipes) {
-                Console.WriteLine(recipe.Result);
+                logger.LogInfo(recipe.Result);
             }
         }
     }

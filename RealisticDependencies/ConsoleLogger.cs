@@ -1,9 +1,13 @@
 ﻿using System;
 
 namespace RealisticDependencies {
-    public class Logger : ILogger {
-        public void LogInfo(string message) {
-            Console.ForegroundColor = ConsoleColor.White;
+    public class ConsoleLogger : IApplicationLogger {
+        public ConsoleLogger() {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+        }
+
+        public void LogInfo(string message, ConsoleColor color = ConsoleColor.White) {
+            Console.ForegroundColor = color;
             Write(message);
         }
 
@@ -23,8 +27,8 @@ namespace RealisticDependencies {
         }
     }
 
-    public interface ILogger {
-        public void LogInfo(string message);
+    public interface IApplicationLogger {
+        public void LogInfo(string message, ConsoleColor color = ConsoleColor.White);
         public void LogDebug(string message);
         public void LogError(string message);
     }

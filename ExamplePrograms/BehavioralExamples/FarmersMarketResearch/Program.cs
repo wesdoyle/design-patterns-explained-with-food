@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BehavioralPatterns.Visitor;
 using BehavioralPatterns.Visitor.DataProcessors;
 using BehavioralPatterns.Visitor.Visitors;
@@ -25,13 +24,14 @@ namespace FarmersMarketResearch {
         /// for reporting purposes.
         /// </summary>
         private static void Main() {
-            var emailer = new Emailer();
-            var farmDatabase = new Database(Configuration.ConnectionString);
-            var floristDatabase = new Database(Configuration.ConnectionString);
-            var bakeryDatabase = new Database(Configuration.ConnectionString);
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine("🌾 Welcome to the Farmer's Market Research Application!");
-            Console.WriteLine("-------------------------------------------------------");
+            var logger = new ConsoleLogger();
+            var emailer = new Emailer(logger);
+            var farmDatabase = new Database(Configuration.ConnectionString, logger);
+            var floristDatabase = new Database(Configuration.ConnectionString, logger);
+            var bakeryDatabase = new Database(Configuration.ConnectionString, logger);
+
+            logger.LogInfo("🌾 Welcome to the Farmer's Market Research Application!");
+            logger.LogInfo("-------------------------------------------------------");
 
             // Various existing components know how to produce the data we need
             // But we don't want to modify them to add new responsibilities, like
@@ -48,10 +48,10 @@ namespace FarmersMarketResearch {
                 };
 
             var reporter = new ReportRunner();
-            Console.WriteLine("==== Generating Sales Reports ====");
+            logger.LogInfo("==== Generating Sales Reports ====");
             reporter.RunReports(dataProcessors, new SaleDataVisitor());
 
-            Console.WriteLine("==== Generating Market Reports ====");
+            logger.LogInfo("==== Generating Market Reports ====");
             reporter.RunReports(dataProcessors, new MarketResearchReportVisitor());
         }
     }

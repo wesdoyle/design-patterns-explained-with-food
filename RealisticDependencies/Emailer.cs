@@ -16,13 +16,13 @@ namespace RealisticDependencies {
     }
 
     public class Emailer : ISendsEmails {
+        private readonly IApplicationLogger _logger;
+
+        public Emailer(IApplicationLogger logger) { _logger = logger; }
+
         public async Task SendMessage(EmailMessage message) {
             await Task.Delay(1000);
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine(
-                $"Sent email to {message.To} " +
-                $"with Message: {message.Content}.");
-            Console.ResetColor();
+            _logger.LogInfo($"Sent email to: {message.To} with Message: {message.Content}");
         }
     }
 }

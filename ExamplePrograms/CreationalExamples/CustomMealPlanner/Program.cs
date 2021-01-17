@@ -21,26 +21,25 @@ namespace CustomMealPlanner {
         /// <param name="args"></param>
         /// <returns></returns>
         private static async Task Main(string[] args) {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            var logger = new ConsoleLogger();
 
             Console.WriteLine("Please enter customer email.");
             var customerEmail = Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(customerEmail)) {
-                Console.WriteLine("Error reading customer email.");
+                logger.LogInfo("Error reading customer email.");
                 return;
             }
 
             try {
                 var dietType = GetCustomerDietFromDatabase(customerEmail);
                 var mealPlanFactory = GetFactoryForDietType(dietType);
-                ISendsEmails emailer = new Emailer();
+                ISendsEmails emailer = new Emailer(logger);
                 IMealPlanService mealPlanService = new MealPlanService(mealPlanFactory, emailer);
                 await mealPlanService.SendDessertsPlanToSubscriber(customerEmail);
 
             } catch (Exception e) {
-                Console.WriteLine($"There was an error processing " +
-                    $"the meal plan: {e.Message}, {e.StackTrace}");
+                logger.LogError($"{$"Error processing the meal plan: {e.Message}, {e.StackTrace}"}");
                 return;
             }
 

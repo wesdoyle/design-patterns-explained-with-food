@@ -15,9 +15,11 @@ namespace KombuchaOrderProcessor {
         /// Pattern to process each stage of the sale accordingly.
         /// </summary>
         private static void Main() {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            var logger = new ConsoleLogger();
 
-            var emailer = new Emailer();
+            logger.LogInfo("🍾 Welcome to the Kombucha Checkout System!");
+
+            var emailer = new Emailer(logger);
 
             var cartonizer = new Cartonizer();
             var customerLoyalty = new CustomerLoyaltyHandler();
@@ -30,13 +32,13 @@ namespace KombuchaOrderProcessor {
                 .SetNext(receiptPrinter);
 
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("Process: Cartonize > Loyalty Program > Shipping Labels > Receipt");
-            Console.WriteLine("----------------------------------------------------------------");
+            logger.LogInfo("Process: Cartonize > Loyalty Program > Shipping Labels > Receipt");
+            logger.LogInfo("----------------------------------------------------------------");
             Console.ResetColor();
 
             var request = new KombuchaSale(); 
 
-            Console.WriteLine("Are you a rewards member? (y/n)");
+            logger.LogInfo("Are you a rewards member? (y/n)");
             var isRewardsMember = Console.ReadLine();
             if (isRewardsMember != null && isRewardsMember.ToLower() == "y") {
                 request.CustomerType = CustomerType.RewardsMember;
@@ -44,7 +46,7 @@ namespace KombuchaOrderProcessor {
                 request.CustomerType = CustomerType.WalkIn;
             }
 
-            Console.WriteLine("Is this an online order? (y/n)");
+            logger.LogInfo("Is this an online order? (y/n)");
             var isOnlineOrder = Console.ReadLine();
             if (isOnlineOrder != null && isOnlineOrder.ToLower() == "y") {
                 request.SaleType = SaleType.Online;

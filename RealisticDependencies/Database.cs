@@ -12,27 +12,25 @@ namespace RealisticDependencies {
 
     public class Database : IDatabase {
         private readonly string _connectionString;
+        private readonly IApplicationLogger _logger;
         private bool _isConnected;
         private readonly Dictionary<string, string> _data = new();
 
-        public Database(string connectionString) {
+        public Database(string connectionString, IApplicationLogger logger) {
             _connectionString = connectionString;
+            _logger = logger;
         }
 
         public async Task Connect() {
             await Task.Delay(2500);
             _isConnected = true;
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine($"{DateTime.UtcNow} - Connected to Database.");
-            Console.ResetColor();
+            _logger.LogInfo($"{DateTime.UtcNow} - Connected to Database.", ConsoleColor.Magenta);
         }
 
         public async Task Disconnect() {
             await Task.Delay(2500);
             _isConnected = false;
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine($"{DateTime.UtcNow} - Disconnected from Database.");
-            Console.ResetColor();
+            _logger.LogInfo($"{DateTime.UtcNow} - Disconnected from Database.", ConsoleColor.Magenta);
         }
 
         public async Task<string> ReadData(string id) {

@@ -5,40 +5,46 @@ using RealisticDependencies;
 namespace CreationalPatterns.Singleton {
     public class IngredientsDbConnectionPool {
 
-        private IngredientsDbConnectionPool() {
-            _database = new Database(Configuration.ConnectionString);
+        private readonly IApplicationLogger _logger;
+        private readonly Database _database;
+        private int _openConnections = 0;
+        private static readonly Lazy<IngredientsDbConnectionPool> _instance 
+            = new (() => {
+                var logger = new ConsoleLogger();
+                var database = new Database(Configuration.ConnectionString, logger);
+                return new IngredientsDbConnectionPool(database, logger);
+            });
+
+        private IngredientsDbConnectionPool(Database database, IApplicationLogger logger) {
+            _database = database;
+            _logger = logger;
         }
 
-        private int _openConnections = 0;
-
-        private readonly Database _database;
-
-        private static readonly Lazy<IngredientsDbConnectionPool> _instance = new (() => new IngredientsDbConnectionPool());
 
         public static IngredientsDbConnectionPool Instance => _instance.Value;
 
         public async Task Connect(string client) {
             if (_openConnections >= Configuration.MaxConnections) {
-                Console.WriteLine("ERROR - Cannot acquire new connection. " +
+                _logger.LogError("ERROR - Cannot acquire new connection. " +
                                   $"Max connections of {Configuration.MaxConnections} " +
                                   "is met or exceeded.");
                 return;
             }
 
             _openConnections++;
-            Console.WriteLine($"Added connection to pool from: {client}");
+            _logger.LogInfo($"Added connection to pool from: {client}", ConsoleColor.Blue);
             await _database.Connect();
         }
 
         public async Task Disconnect() {
             if (_openConnections <= 0) {
-                Console.WriteLine("There are no connections to close.");
+                _logger.LogInfo("There are no connections to close.", ConsoleColor.Blue);
                 return;
             }
 
             _openConnections--;
-            Console.WriteLine("Released connection. Now managing " +
-                              $"({_openConnections}) open connections.");
+            _logger.LogInfo($"Released connection. Now managing ({_openConnections}) open connections.", 
+                ConsoleColor.Blue);
             await _database.Disconnect();
         }
     }

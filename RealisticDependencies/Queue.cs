@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace RealisticDependencies {
     public class QueueMessage {
@@ -13,10 +14,15 @@ namespace RealisticDependencies {
     }
 
     public class CloudQueue : IAmqpQueue {
+        private readonly IApplicationLogger _logger;
+
+        public CloudQueue(IApplicationLogger logger) {
+            _logger = logger;
+        }
+
         public void Add(QueueMessage item) {
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine($"Added to queue: {item.Content}");
-            Console.ResetColor();
+            Thread.Sleep(250);
+            _logger.LogInfo("$Added to queue: {item.Content}", ConsoleColor.Magenta);
         }
     }
 }
