@@ -1,13 +1,13 @@
 ﻿namespace BehavioralPatterns.Mediator {
     public abstract class FoodCart {
-        protected IMediator _mediator;
+        protected IMediator Mediator;
 
-        public FoodCart(IMediator mediator = null) {
-            _mediator = mediator;
+        protected FoodCart(IMediator mediator = null) {
+            Mediator = mediator;
         }
 
         public void SetMediator(IMediator mediator) {
-            _mediator = mediator;
+            Mediator = mediator;
         }
     }
 }

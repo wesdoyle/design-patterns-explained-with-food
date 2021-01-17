@@ -5,13 +5,13 @@ namespace BehavioralPatterns.Mediator.FoodCarts {
         public void DoC() {
             Console.WriteLine("Component 2 does C.");
 
-            _mediator.Notify(this, "C");
+            Mediator.Notify(this, "C");
         }
 
         public void DoD() {
             Console.WriteLine("Component 2 does D.");
 
-            _mediator.Notify(this, "D");
+            Mediator.Notify(this, "D");
         }
     }
 }

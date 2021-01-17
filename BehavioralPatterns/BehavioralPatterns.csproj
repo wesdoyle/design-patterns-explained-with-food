@@ -6,10 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Interpreter\" />
-    <Folder Include="Visitor\" />
-    <Folder Include="TemplateMethod\" />
-    <Folder Include="Strategy\" />
-    <Folder Include="State\" />
   </ItemGroup>
 
   <ItemGroup>

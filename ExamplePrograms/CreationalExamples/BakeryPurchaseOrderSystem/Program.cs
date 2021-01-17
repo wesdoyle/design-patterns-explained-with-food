@@ -28,7 +28,6 @@ namespace BakeryPurchaseOrderSystem {
                 new LineItem("yeast", 8, 0.75m),
             };
 
-
             PurchaseOrder breadSuppliesOrder = orderBuilder
                 .WithId("b_123")
                 .ForCompany("Riverrun Bakery")

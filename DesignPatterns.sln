@@ -51,11 +51,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaCartonizer", "ExamplePro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeighborhoodComposterSignUpForm", "ExamplePrograms\BehavioralExamples\NeighborhoodComposterSignUpForm\NeighborhoodComposterSignUpForm.csproj", "{2D34F9AE-5913-4081-A392-2666E6F2B11A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BestRestaurantFinder", "ExamplePrograms\BehavioralExamples\BestRestaurantFinder\BestRestaurantFinder.csproj", "{607AF2B3-529F-46B6-B629-7009FADF36AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BestRestaurantFinder", "ExamplePrograms\BehavioralExamples\BestRestaurantFinder\BestRestaurantFinder.csproj", "{607AF2B3-529F-46B6-B629-7009FADF36AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodTruckCoordinator", "ExamplePrograms\BehavioralExamples\FoodTruckCoordinator\FoodTruckCoordinator.csproj", "{139A27DA-5EAA-424B-AED5-0441F5266027}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodTruckCoordinator", "ExamplePrograms\BehavioralExamples\FoodTruckCoordinator\FoodTruckCoordinator.csproj", "{139A27DA-5EAA-424B-AED5-0441F5266027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietPlanTracker", "ExamplePrograms\BehavioralExamples\DietPlanTracker\DietPlanTracker.csproj", "{494207A3-E6AE-4113-9111-D7F4432C523F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietPlanTracker", "ExamplePrograms\BehavioralExamples\DietPlanTracker\DietPlanTracker.csproj", "{494207A3-E6AE-4113-9111-D7F4432C523F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

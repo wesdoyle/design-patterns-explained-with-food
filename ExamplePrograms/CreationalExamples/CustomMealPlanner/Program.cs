@@ -48,22 +48,16 @@ namespace CustomMealPlanner {
         }
 
         public static string GetCustomerDietFromDatabase(string customerEmail) {
-            if (customerEmail == "jane@example.com") {
-                return "keto";
-            } else {
-                return "vegetarian";
-            }
+            return customerEmail == "jane@example.com" 
+                ? "keto" 
+                : "vegetarian";
         }
 
-        public static IMealPlanFactory GetFactoryForDietType(string dietType) {
-            if (dietType == "keto") {
-                return new KetoMealPlanFactory();
-            } else if (dietType == "vegetarian") {
-                return new VegetarianMealPlanFactory();
-            }
-
-            // Fallback to vegetarian diet plan
-            return new VegetarianMealPlanFactory();
-        }
+        public static IMealPlanFactory GetFactoryForDietType(string dietType) 
+            => dietType switch {
+                "keto" => new KetoMealPlanFactory(),
+                "vegetarian" => new VegetarianMealPlanFactory(),
+                _ => new VegetarianMealPlanFactory()
+            };
     }
 }
