@@ -18,7 +18,18 @@ namespace Tests {
         [Fact]
         public async Task Given_Not_Connected_Throws_Exception() {
             var database = new Database("fake_connection");
-            await Assert.ThrowsAsync<NotSupportedException>(async () => await database.WriteData("foo", "bar"));
+            await Assert.ThrowsAsync<NotSupportedException>(
+                async () => await database.WriteData("foo", "bar"));
+        }
+
+        [Fact]
+        public async Task Given_Explicit_Disonnect_After_Write_Read_Throws_Exception() {
+            var database = new Database("fake_connection");
+            await database.Connect();
+            await database.WriteData("foo", "bar");
+            await database.Disconnect();
+            await Assert.ThrowsAsync<NotSupportedException>(
+                async () => await database.ReadData("foo"));
         }
     }
 }
