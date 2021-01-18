@@ -16,8 +16,8 @@ namespace MenuChanger {
         /// </summary>
         protected static async Task Main() {
             var logger = new ConsoleLogger();
-            logger.LogInfo("🌶️ Welcome to the Menu Changer");
-            logger.LogInfo("------------------------------");
+            logger.LogInfo("🌶️ Welcome to the Strategic Menu Changer");
+            logger.LogInfo("----------------------------------------");
             
             var dateTimeProvider = new DateTimeProvider();
             var menuDatabase = new Database(Configuration.ConnectionString, logger);
