@@ -5,17 +5,31 @@ using Newtonsoft.Json;
 using System.Threading.Tasks;
 
 namespace BehavioralPatterns.Strategy.Strategies {
+    /// <summary>
+    /// Here we have a menu-building strategy that accounts for
+    /// Menu item price - we return a menu items containing only
+    /// items over a specified PriceThreshold
+    /// </summary>
     public class PriceRangeMenuStrategy : IMenuGenerationStrategy {
         private readonly IDatabase _menuDatabase;
+        private const decimal PriceThreshold = 3m;
 
         public PriceRangeMenuStrategy(IDatabase menuDatabase) {
             _menuDatabase = menuDatabase;
+            _menuDatabase.Connect().Wait();
         }
 
+        /// <summary>
+        /// The method required by the interace to implement this strategy
+        /// </summary>
+        /// <returns></returns>
         public async Task<Menu> GenerateMenu() {
             var allMenuItems = await _menuDatabase.DumpData();
-            var allIteAmsDeserialized = allMenuItems.Select(item => JsonConvert.DeserializeObject<MenuItem>(item));
-            var filteredItems = new List<MenuItem>();
+            var allItemsDeserialized = allMenuItems
+                .Select(item => JsonConvert.DeserializeObject<MenuItem>(item));
+            var filteredItems = new List<MenuItem>(allItemsDeserialized)
+                .Where(item => item.Price > PriceThreshold)
+                .ToList();
             return new Menu(filteredItems);
         }
     }
