@@ -1,17 +1,23 @@
 ﻿using System;
 using BehavioralPatterns.ChainOfResponsibility.Constants;
+using RealisticDependencies;
 
 namespace BehavioralPatterns.ChainOfResponsibility.Handlers {
     public class CustomerLoyaltyHandler : AbstractHandler {
+        private readonly IApplicationLogger _logger;
+
+        public CustomerLoyaltyHandler(IApplicationLogger logger) {
+            _logger = logger;
+        }
+        
         public override KombuchaSale Handle(KombuchaSale request) {
-            Console.ForegroundColor = ConsoleColor.Green;
             if (request.CustomerType == CustomerType.RewardsMember) {
-                Console.WriteLine("Adding awards point for purchase!");
+                _logger.LogInfo("Adding awards point for purchase!", ConsoleColor.Green);
                 return base.Handle(request);
             }
 
             if (request.CustomerType != CustomerType.RewardsMember) {
-                Console.WriteLine("Adding advertisement to request.");
+                _logger.LogInfo("Adding advertisement to request.", ConsoleColor.Green);
                 request.SpecialMessages.Add("Have you heard about our Awards Program?"); 
                 return base.Handle(request);
             }

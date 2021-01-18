@@ -21,24 +21,22 @@ namespace KombuchaOrderProcessor {
 
             var emailer = new Emailer(logger);
 
-            var cartonizer = new Cartonizer();
-            var customerLoyalty = new CustomerLoyaltyHandler();
-            var receiptPrinter = new ReceiptPrinter(emailer);
-            var shippingLabeler = new ShippingLabelPrinter();
+            var cartonizer = new Cartonizer(logger);
+            var customerLoyalty = new CustomerLoyaltyHandler(logger);
+            var receiptPrinter = new ReceiptPrinter(emailer, logger);
+            var shippingLabeler = new ShippingLabelPrinter(logger);
 
             cartonizer
                 .SetNext(customerLoyalty)
                 .SetNext(shippingLabeler)
                 .SetNext(receiptPrinter);
 
-            Console.ForegroundColor = ConsoleColor.Blue;
-            logger.LogInfo("Process: Cartonize > Loyalty Program > Shipping Labels > Receipt");
-            logger.LogInfo("----------------------------------------------------------------");
-            Console.ResetColor();
+            logger.LogInfo("Process: Cartonize > Loyalty Program > Shipping Labels > Receipt", ConsoleColor.Blue);
+            logger.LogInfo("----------------------------------------------------------------", ConsoleColor.DarkBlue);
 
             var request = new KombuchaSale(); 
 
-            logger.LogInfo("Are you a rewards member? (y/n)");
+            logger.LogInfo("Are you a rewards member? (y/n)", ConsoleColor.Blue);
             var isRewardsMember = Console.ReadLine();
             if (isRewardsMember != null && isRewardsMember.ToLower() == "y") {
                 request.CustomerType = CustomerType.RewardsMember;
@@ -46,7 +44,7 @@ namespace KombuchaOrderProcessor {
                 request.CustomerType = CustomerType.WalkIn;
             }
 
-            logger.LogInfo("Is this an online order? (y/n)");
+            logger.LogInfo("Is this an online order? (y/n)", ConsoleColor.Blue);
             var isOnlineOrder = Console.ReadLine();
             if (isOnlineOrder != null && isOnlineOrder.ToLower() == "y") {
                 request.SaleType = SaleType.Online;

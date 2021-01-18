@@ -1,5 +1,6 @@
 ﻿namespace BehavioralPatterns.ChainOfResponsibility {
     public abstract class AbstractHandler : IHandler {
+
         private IHandler _nextHandler;
 
         public IHandler SetNext(IHandler handler) {
