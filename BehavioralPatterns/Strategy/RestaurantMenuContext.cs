@@ -2,6 +2,7 @@
 using RealisticDependencies;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BehavioralPatterns.Strategy {
@@ -72,16 +73,24 @@ namespace BehavioralPatterns.Strategy {
         private async Task InitializeDatabase() {
             // Open a connection to the database. We close it when we dispose of this Context
             await _menuDatabase.Connect();
+            var semaphore = new SemaphoreSlim(1);
+            await semaphore.WaitAsync(); 
 
             _logger.LogInfo("Seeding full menu into the database", ConsoleColor.Green);
             var allMenuItems = GetAllMenuItems();
             var listOfInserts = new List<Task>();
-            foreach (var item in allMenuItems) {
-                var jsonItem = SerializeMenuItemAsJson(item);
-                var task = _menuDatabase.WriteData(item.Name, jsonItem);
-                listOfInserts.Add(task);
+
+            try {
+                foreach (var item in allMenuItems) {
+                    var jsonItem = SerializeMenuItemAsJson(item);
+                    var task = _menuDatabase.WriteData(item.Name, jsonItem);
+                    listOfInserts.Add(task);
+                }
+
+                await Task.WhenAll(listOfInserts);
+            } finally {
+                semaphore.Release();
             }
-            await Task.WhenAll(listOfInserts);
         }
 
         private static List<MenuItem> GetAllMenuItems() => new() {
