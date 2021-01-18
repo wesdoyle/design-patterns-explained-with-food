@@ -59,15 +59,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietPlanTracker", "ExampleP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FarmersMarketResearch", "ExamplePrograms\BehavioralExamples\FarmersMarketResearch\FarmersMarketResearch.csproj", "{5FBD2740-0119-47F1-8F7D-F9371AD4348E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookbookPrinter", "ExamplePrograms\BehavioralExamples\CookbookPrinter\CookbookPrinter.csproj", "{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookbookPrinter", "ExamplePrograms\BehavioralExamples\CookbookPrinter\CookbookPrinter.csproj", "{4A91A0ED-7EE9-403C-8D4A-89BBED531E3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonutShop", "ExamplePrograms\BehavioralExamples\DonutShop\DonutShop.csproj", "{E1266744-0F9B-40A1-8193-5BA114E0E9EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoughnutShop", "ExamplePrograms\BehavioralExamples\DonutShop\DoughnutShop.csproj", "{E1266744-0F9B-40A1-8193-5BA114E0E9EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChocolateShopBarcodes", "ExamplePrograms\BehavioralExamples\ChocolateShopBarcodes\ChocolateShopBarcodes.csproj", "{26709B09-F410-4F8E-B07C-A3FF806AC832}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChocolateShopBarcodes", "ExamplePrograms\BehavioralExamples\ChocolateShopBarcodes\ChocolateShopBarcodes.csproj", "{26709B09-F410-4F8E-B07C-A3FF806AC832}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuChanger", "ExamplePrograms\BehavioralExamples\MenuChanger\MenuChanger.csproj", "{6855B65C-1BB0-4148-8604-3F776659E7A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuChanger", "ExamplePrograms\BehavioralExamples\MenuChanger\MenuChanger.csproj", "{6855B65C-1BB0-4148-8604-3F776659E7A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableBuzzer", "ExamplePrograms\BehavioralExamples\TableBuzzer\TableBuzzer.csproj", "{635A059B-0BC1-4781-A129-9F3DAE9B820C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableBuzzer", "ExamplePrograms\BehavioralExamples\TableBuzzer\TableBuzzer.csproj", "{635A059B-0BC1-4781-A129-9F3DAE9B820C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

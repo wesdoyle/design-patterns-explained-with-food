@@ -23,11 +23,11 @@ namespace BehavioralPatterns.Memento {
 
         public void AddDoughnut(string doughnut) {
             _state += $"_{doughnut}";
-            _logger.LogInfo("Added a doughnut to the cart.", ConsoleColor.DarkGray);
+            _logger.LogInfo("(Cart) Added a doughnut to the cart", ConsoleColor.DarkGray);
             Save();
         }
 
-        public void PrintState() => _logger.LogInfo($"{_state}", ConsoleColor.Green);
+        public void PrintState() => _logger.LogInfo($"(Cart) {_state}", ConsoleColor.Green);
 
         // Saves the Cart state in a Memento object.
         public Memento Save() => new CartMemento(_state);

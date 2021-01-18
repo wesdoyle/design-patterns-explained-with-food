@@ -5,7 +5,7 @@ namespace DonutShop {
     internal class Program {
         protected static void Main() {
             var logger = new ConsoleLogger();
-            logger.LogInfo("🍩 Welcome to the Doughnut Shop.  Let's demo our cart client...")
+            logger.LogInfo("🍩 Welcome to the Doughnut Shop.  Let's demo our cart client...");
 
             // The underlying cart representation
             var shoppingCart = new Cart(logger);
@@ -17,16 +17,11 @@ namespace DonutShop {
             var cartClient = new CartClient(shoppingCart, memory, logger);
 
             cartClient.Add(Doughnut.Chocolate);
-            cartClient.Add(Doughnut.Vanilla);
-            cartClient.Add(Doughnut.Blueberry);
-            cartClient.Add(Doughnut.Blueberry);
-            cartClient.Add(Doughnut.Blueberry);
-
-            cartClient.Print();
-
             cartClient.Undo();
             cartClient.Undo();
-
+            cartClient.Undo();
+            cartClient.Undo();
+            cartClient.Undo();
             cartClient.Print();
         }
     }

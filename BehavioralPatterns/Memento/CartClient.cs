@@ -19,13 +19,17 @@ namespace BehavioralPatterns.Memento {
             _cart.AddDoughnut(doughnut);
             var memento = _cart.Save();
             _caretaker.SaveState(memento);
-            _logger.LogInfo("Added Doughnut and persisted this event to memory");
+            _logger.LogInfo($"(Cart Client) Added doughnut and persisted this event to memory: [{doughnut}]");
         }
 
         public void Undo() {
             var memento = _caretaker.GetPreviousStateAndUpdateMemory();
+            if (memento == null) {
+                _logger.LogError("(Cart Client) The cart is empty");
+                return;
+            }
             _cart.Restore(memento);
-            _logger.LogInfo("Restored Cart to Previous State");
+            _logger.LogInfo("(Cart Client) Restored Cart to previous state");
         }
 
         public void Print() => _cart.PrintState();
