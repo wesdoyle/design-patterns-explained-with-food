@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace RealisticDependencies {
@@ -8,6 +9,7 @@ namespace RealisticDependencies {
         Task Disconnect();
         Task<string> ReadData(string id);
         Task WriteData(string key, string data);
+        Task<List<string>> DumpData();
     }
 
     public class Database : IDatabase {
@@ -43,14 +45,24 @@ namespace RealisticDependencies {
             catch (KeyNotFoundException) { return ""; }
         }
 
-        public async Task WriteData(string key, string data)
-        {
+        public async Task WriteData(string key, string data) {
             if (!_isConnected) {
                 throw new NotSupportedException("Cannot write to database without open connection");
             }
             if (string.IsNullOrWhiteSpace(key) || string.IsNullOrWhiteSpace(data)) { return; }
             await Task.Delay(250);
             _data[key] = data;
+        }
+
+        public async Task<List<string>> DumpData() {
+            if (!_isConnected) {
+                throw new NotSupportedException("Cannot read from database without open connection");
+            }
+            await Task.Delay(2000);
+            try { return _data.Values.Select(v => v).ToList(); 
+            } catch (KeyNotFoundException) { 
+                return new(); 
+            }
         }
     }
 }

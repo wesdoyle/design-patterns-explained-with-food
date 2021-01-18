@@ -4,9 +4,11 @@ using System.Collections.Generic;
 
 namespace BehavioralPatterns.Strategy.Strategies {
     public class TimeOfDayMenuStrategy : IMenuGenerationStrategy {
+        private readonly IDatabase _menuDatabase;
         private readonly IDateTimeProvider _date;
 
-        public TimeOfDayMenuStrategy(IDateTimeProvider date) {
+        public TimeOfDayMenuStrategy(IDatabase menuDatabase, IDateTimeProvider date) {
+            _menuDatabase = menuDatabase;
             _date = date;
         }
 

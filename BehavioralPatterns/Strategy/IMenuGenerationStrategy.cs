@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BehavioralPatterns.Strategy {
     /// <summary>
@@ -6,7 +7,7 @@ namespace BehavioralPatterns.Strategy {
     /// must produce an instance of a Menu object.
     /// </summary>
     public interface IMenuGenerationStrategy {
-        Menu GenerateMenu();
+        Task<Menu> GenerateMenu();
     }
 
     public record Menu {
