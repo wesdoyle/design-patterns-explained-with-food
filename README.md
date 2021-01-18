@@ -2,7 +2,7 @@
 
 GOF Design Patterns in C# with working examples inspired by food
 
-This repository was made as a way to demonstrate and learn using moderately realistic examples of the Gang of Four Design Patterns (Design Patterns - Elements of Reusable Object-Oriented Software).
+This repository was made as a way to demonstrate and learn using moderately realistic examples of the Gang of Four Design Patterns (Design Patterns - Elements of Reusable Object-Oriented Software) by Gamma, Helm, Johnson, and Vlissides.
 
 ## Motivation
 
