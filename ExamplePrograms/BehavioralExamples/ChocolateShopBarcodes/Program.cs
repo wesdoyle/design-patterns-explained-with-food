@@ -9,6 +9,7 @@ namespace ChocolateShopBarcodes {
             var context = new BarcodeContext();
 
             logger.LogInfo("🍫 Welcome to the Chocolate Shop Barcode Scanner Utility");
+            logger.LogInfo("--------------------------------------------------------");
             logger.LogInfo("Please enter the barcode:");
             context.BarcodeExpression = Console.ReadLine();
 

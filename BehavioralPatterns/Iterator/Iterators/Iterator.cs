@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 
 namespace BehavioralPatterns.Iterator {
+    /// <summary>
+    /// Here we extend System.Collections IEnumerator,
+    /// which defines all the methods we need to iterate
+    /// </summary>
     public abstract class Iterator : IEnumerator {
         object IEnumerator.Current => Current();
 
