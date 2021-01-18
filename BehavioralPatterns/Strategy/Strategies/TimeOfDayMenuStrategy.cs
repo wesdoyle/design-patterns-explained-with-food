@@ -1,42 +1,37 @@
 ﻿using RealisticDependencies;
 using System;
+using System.Collections.Generic;
 
 namespace BehavioralPatterns.Strategy.Strategies {
     public class TimeOfDayMenuStrategy : IMenuGenerationStrategy {
         private readonly IDateTimeProvider _date;
-        private readonly DateTime _currentTime;
 
         public TimeOfDayMenuStrategy(IDateTimeProvider date) {
             _date = date;
-            _currentTime = _date.GetCurrentTimeUtc();
         }
 
-        Menu IMenuGenerationStrategy.GenerateMenu() {
-            if (_currentTime.Hour > 6 && _currentTime.Hour < 12) {
-                return GenerateBreakfastMenu();
-            } else if (_currentTime.Hour > 12 && _currentTime.Hour < 16) {
-                return GenerateLunchMenu();
-            } else {
-                return GenerateDinnerMenu();
-            }
+        public Menu GenerateMenu() {
+            var isBreakfastTime = _date.IsMorning();
+            var isLunchTime = _date.IsAfternoon();
+
+            if (isBreakfastTime) { return GenerateBreakfastMenu(); } 
+            else if (isLunchTime) { return GenerateLunchMenu(); } 
+            else { return GenerateDinnerMenu(); }
         }
 
-        private Menu GenerateDinnerMenu() {
-            return new Menu {
-
-            };
+        private static Menu GenerateDinnerMenu() {
+            var dinnerItems = new List<MenuItem>();
+            return new Menu(dinnerItems);
         }
 
-        private Menu GenerateLunchMenu() {
-            return new Menu {
-
-            };
+        private static Menu GenerateLunchMenu() {
+            var lunchItems = new List<MenuItem>();
+            return new Menu(lunchItems);
         }
 
-        private Menu GenerateBreakfastMenu() {
-            return new Menu {
-
-            };
+        private static Menu GenerateBreakfastMenu() {
+            var breakfastItems = new List<MenuItem>();
+            return new Menu(breakfastItems);
         }
     }
 }
