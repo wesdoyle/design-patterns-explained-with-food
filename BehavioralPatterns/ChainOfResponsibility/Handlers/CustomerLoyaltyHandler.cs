@@ -12,13 +12,13 @@ namespace BehavioralPatterns.ChainOfResponsibility.Handlers {
         
         public override KombuchaSale Handle(KombuchaSale request) {
             if (request.CustomerType == CustomerType.RewardsMember) {
-                _logger.LogInfo("Adding awards point for purchase!", ConsoleColor.Green);
+                _logger.LogInfo("Adding rewards point for purchase!", ConsoleColor.Green);
                 return base.Handle(request);
             }
 
             if (request.CustomerType != CustomerType.RewardsMember) {
                 _logger.LogInfo("Adding advertisement to request.", ConsoleColor.Green);
-                request.SpecialMessages.Add("Have you heard about our Awards Program?"); 
+                request.SpecialMessages.Add("Have you heard about our Rewards Program?"); 
                 return base.Handle(request);
             }
 
