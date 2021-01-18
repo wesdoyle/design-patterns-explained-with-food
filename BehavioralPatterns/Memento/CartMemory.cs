@@ -4,6 +4,7 @@ namespace BehavioralPatterns.Memento {
     public interface IMementoCache {
         void SaveState(Memento memento);
         Memento GetPreviousStateAndUpdateMemory();
+        Memento[] PeekMemory();
     }
 
     /// <summary>
@@ -20,9 +21,16 @@ namespace BehavioralPatterns.Memento {
         }
 
         public Memento GetPreviousStateAndUpdateMemory() {
-            return _memory.TryPop(out Memento memento) 
-                ? memento 
-                : null;
+            // Throw away the last memory
+            _memory.TryPop(out Memento memento);
+            return memento;
+        }
+
+        public Memento[] PeekMemory() {
+            // Just for demo purposes
+            var memCopy = new Memento[_memory.Count];
+            _memory.CopyTo(memCopy, 0);
+            return memCopy;
         }
     }
 }

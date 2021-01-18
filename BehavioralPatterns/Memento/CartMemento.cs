@@ -19,5 +19,6 @@ namespace BehavioralPatterns.Memento {
         public override string GetState() => _state;
 
         public override DateTime GetSnapshotDate() => _date;
+
     }
 }
