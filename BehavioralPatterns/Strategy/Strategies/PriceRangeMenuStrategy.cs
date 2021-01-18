@@ -1,4 +1,5 @@
-﻿using RealisticDependencies;
+﻿using System;
+using RealisticDependencies;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
@@ -16,7 +17,6 @@ namespace BehavioralPatterns.Strategy.Strategies {
 
         public PriceRangeMenuStrategy(IDatabase menuDatabase) {
             _menuDatabase = menuDatabase;
-            _menuDatabase.Connect().Wait();
         }
 
         /// <summary>

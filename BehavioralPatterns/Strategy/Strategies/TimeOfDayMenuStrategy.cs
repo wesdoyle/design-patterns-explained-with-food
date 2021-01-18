@@ -1,4 +1,5 @@
-﻿using RealisticDependencies;
+﻿using System;
+using RealisticDependencies;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +20,6 @@ namespace BehavioralPatterns.Strategy.Strategies {
         public TimeOfDayMenuStrategy(IDatabase menuDatabase, IDateTimeProvider date) {
             _date = date;
             _menuDatabase = menuDatabase;
-            _menuDatabase.Connect().Wait();
         }
 
         /// <summary>
