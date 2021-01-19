@@ -36,6 +36,10 @@ namespace FoodTruckCoordinator {
             await sandwichShop.Send(falafelCart, new NetworkMessage("All done here by the lake!"));
 
             await falafelCart.Send(falafelCart, new NetworkMessage("thanks bikes!"));
+            
+            await sandwichShop.Send(falafelCart, new NetworkMessage("where are you, Sandwich Shop?"));
+            
+            await sandwichShop.Send(tacoTruck, new NetworkMessage("hey Taco Truck where are you?"));
         }
     }
 }

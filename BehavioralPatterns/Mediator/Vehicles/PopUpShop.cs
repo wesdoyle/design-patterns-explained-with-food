@@ -14,11 +14,15 @@ namespace BehavioralPatterns.Mediator.Vehicles {
             await Task.Delay(500);
             var payload = message.Read();
             var sendTime = message.GetTimestamp();
-            Logger.LogInfo($"[{Handle}] Received Message {payload} at ({sendTime})", ConsoleColor.DarkYellow);
-            if (payload.Contains("thanks hand carts")) {
+            Logger.LogInfo($"[{Handle}] <--- Received Message {payload} at ({sendTime})", ConsoleColor.DarkYellow);
+            if (payload.Contains("thanks pop-up")) {
                 var returnMessage = new NetworkMessage("All Good! 🌿");
                 returnMessage.Sign(this);
                 await Mediator.Broadcast(returnMessage);
+            }
+            
+            if (payload.Contains("where are you")) {
+                await SignalLocation();
             }
         }
 

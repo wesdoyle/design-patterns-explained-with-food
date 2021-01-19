@@ -1,5 +1,4 @@
 ﻿using RealisticDependencies;
-using System;
 using System.Threading.Tasks;
 
 namespace BehavioralPatterns.Mediator {
@@ -21,7 +20,8 @@ namespace BehavioralPatterns.Mediator {
 
         public async Task SignalLocation() {
             await Task.Delay(250);
-            Logger.LogInfo($"[{Latitude} : {Longitude}]", ConsoleColor.Cyan);
+            var message = new NetworkMessage($"{Handle} Reporting From: [{Latitude}, {Longitude}] 🗺️ ");
+            await Mediator.Broadcast( message);
         }
     }
 }

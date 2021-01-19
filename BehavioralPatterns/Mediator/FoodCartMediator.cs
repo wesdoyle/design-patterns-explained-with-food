@@ -18,14 +18,14 @@ namespace BehavioralPatterns.Mediator {
         }
 
         public async Task Broadcast(NetworkMessage message) {
-            _logger.LogInfo("[Mediator] Broadcasting");
+            _logger.LogInfo("[Mediator] ---> Broadcasting");
             foreach (var member in _fleet) {
                 await member.Value.Receive(message);
             }
         }
 
         public async Task DeliverPayload(string handle, NetworkMessage message) {
-            _logger.LogInfo($"[Mediator] Delivering Payload to {handle}", ConsoleColor.DarkGray);
+            _logger.LogInfo($"[Mediator] ---> Delivering Payload to {handle}", ConsoleColor.DarkGray);
             if (!_fleet.ContainsKey(handle)) {
                 _logger.LogError($"No handle: {handle}");
                 return;
@@ -34,6 +34,7 @@ namespace BehavioralPatterns.Mediator {
         }
 
         public async Task DeliverPayload(List<FleetMember> receivers, NetworkMessage message) {
+            _logger.LogInfo($"[Mediator] ---> Delivering Payload to multiple", ConsoleColor.DarkGray);
             foreach (var member in receivers.Where(member => _fleet.ContainsKey(member.Handle))) {
                 await member.Receive(message);
             }

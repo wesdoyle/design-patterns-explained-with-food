@@ -20,10 +20,16 @@ namespace BehavioralPatterns.Mediator.Vehicles {
             await Task.Delay(500);
             var payload = message.Read();
             var sendTime = message.GetTimestamp();
-            Logger.LogInfo($"[{Handle}] Received Message {payload} at ({sendTime})", ConsoleColor.DarkBlue);
+            Logger.LogInfo($"[{Handle}] <--- Received Message {payload} at ({sendTime})", ConsoleColor.DarkBlue);
             
             if (payload.Contains("thanks trucks")) {
                 var returnMessage = new NetworkMessage("woot 👍");
+                returnMessage.Sign(this);
+                await Mediator.Broadcast(returnMessage);
+            }
+
+            if (payload.Contains("where are you")) {
+                var returnMessage = new NetworkMessage("I'm in a secret location");
                 returnMessage.Sign(this);
                 await Mediator.Broadcast(returnMessage);
             }
