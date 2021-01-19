@@ -3,13 +3,13 @@ using System;
 using System.Threading.Tasks;
 
 namespace BehavioralPatterns.Mediator.FoodCarts {
-    public class TruckCart : FoodCart {
+    public class HandCart : FoodCart {
         private IMediator _network;
         private readonly IApplicationLogger _logger;
         private readonly IDatabase _database;
         private readonly string _handle;
 
-        public TruckCart(
+        public HandCart(
             string handle, 
             int lat, 
             int lon, 
@@ -24,7 +24,7 @@ namespace BehavioralPatterns.Mediator.FoodCarts {
             var payload = message.Read();
             var sendTime = message.GetTimestamp();
             _logger.LogInfo($"[{_handle}] Received Message at {payload}: ({sendTime})", ConsoleColor.Magenta);
-            if (payload.Contains("thanks trucks")) {
+            if (payload.Contains("thanks hand carts")) {
                 await _network.Broadcast(new NetworkMessage("👍"));
             }
         }
