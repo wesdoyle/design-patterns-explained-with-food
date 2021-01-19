@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 namespace BehavioralPatterns.Interpreter {
     public class BarcodeClient {
-        private IApplicationLogger _logger;
-        private BarcodeContext _context;
+        private readonly IApplicationLogger _logger;
+        private readonly BarcodeContext _context;
 
         public BarcodeClient(IApplicationLogger logger, BarcodeContext context) {
             _logger = logger;

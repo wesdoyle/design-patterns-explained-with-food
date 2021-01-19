@@ -2,7 +2,7 @@
 
 namespace BehavioralPatterns.Iterator.Iterators {
     public class RestaurantIterator : Iterator {
-        private RestaurantCollection _collection;
+        private readonly RestaurantCollection _collection;
         private int _currentPosition = 0;
 
         public RestaurantIterator(RestaurantCollection collection) {

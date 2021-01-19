@@ -15,7 +15,7 @@ namespace BehavioralPatterns.Memento {
     /// on the needs of the application.
     /// </summary>
     public class CartMemory : IMementoCache {
-        private Stack<Memento> _memory = new Stack<Memento>();
+        private readonly Stack<Memento> _memory = new Stack<Memento>();
         public void SaveState(Memento memento) {
             _memory.Push(memento);
         }

@@ -4,7 +4,7 @@ namespace BehavioralPatterns.Mediator {
     public class NetworkMessage {
         public NetworkMessage(string payload) => (_payload) = (payload);
 
-        private DateTime _timeSent = DateTime.UtcNow;
+        private readonly DateTime _timeSent = DateTime.UtcNow;
 
         private ICommunicates _from;
 

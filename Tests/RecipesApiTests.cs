@@ -9,7 +9,7 @@ using Xunit;
 
 namespace Tests {
     public class RecipesApiTests {
-        private XmlSerializer xml = new XmlSerializer(typeof(Recipe));
+        private readonly XmlSerializer xml = new XmlSerializer(typeof(Recipe));
 
         [Fact]
         public async Task MakeHttpRequestForRecipe_Gets_Value_From_Database_Given_Recipe() {
