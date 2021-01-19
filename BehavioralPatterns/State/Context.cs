@@ -1,25 +1,29 @@
 ﻿using System;
 
 namespace BehavioralPatterns.State {
+    /// <summary>
+    /// Maintains an instance of a particular Concrete State that defines the current state
+    /// </summary>
     public class Context {
-        private ApplicationState _state;
+        
+        private BuzzerMode _mode;
 
-        public Context(ApplicationState state) {
-            TransitionTo(state);
+        public Context(BuzzerMode mode) {
+            TransitionTo(mode);
         }
 
-        public void TransitionTo(ApplicationState state) {
-            Console.WriteLine($"Context: Transitioning to {state.GetType().Name}.");
-            _state = state;
-            _state.SetContext(this);
+        public void TransitionTo(BuzzerMode mode) {
+            Console.WriteLine($"Context: Transitioning to {mode.GetType().Name}.");
+            _mode = mode;
+            _mode.SetContext(this);
         }
 
         public void Request1() {
-            _state.Handle1();
+            _mode.TransitionToBuzzingState();
         }
 
         public void Request2() {
-            _state.Handle2();
+            _mode.Activate();
         }
     }
 }
