@@ -16,9 +16,9 @@ namespace BehavioralPatterns.Mediator {
 
         public string Read() => _payload;
 
-        public string Sign(ICommunicates signature) {
+        public void Sign(ICommunicates signature) {
             _from = signature;
-            return _payload = $"{signature.Handle} : {_payload}";
+            _payload = $"<@{signature.Handle} : {_payload}>";
         }
     }
 }

@@ -20,7 +20,8 @@ namespace BehavioralPatterns.Mediator.Vehicles {
             await Task.Delay(500);
             var payload = message.Read();
             var sendTime = message.GetTimestamp();
-            Logger.LogInfo($"[{Handle}] Received Message at {payload}: ({sendTime})", ConsoleColor.Magenta);
+            Logger.LogInfo($"[{Handle}] Received Message {payload} at ({sendTime})", ConsoleColor.DarkBlue);
+            
             if (payload.Contains("thanks trucks")) {
                 var returnMessage = new NetworkMessage("woot 👍");
                 returnMessage.Sign(this);
@@ -35,7 +36,7 @@ namespace BehavioralPatterns.Mediator.Vehicles {
         }
 
         public override void SetMediator(IMediator mediator) {
-            Logger.LogInfo($"Registering Fleet Member: {Handle}", ConsoleColor.DarkBlue);
+            Logger.LogInfo($"[{Handle}] Registering with Fleet.", ConsoleColor.DarkBlue);
             Mediator = mediator;
         }
     }

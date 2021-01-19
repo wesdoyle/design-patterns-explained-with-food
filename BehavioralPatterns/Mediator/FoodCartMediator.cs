@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using RealisticDependencies;
 
@@ -17,25 +18,24 @@ namespace BehavioralPatterns.Mediator {
         }
 
         public async Task Broadcast(NetworkMessage message) {
-            Console.WriteLine("Broadcasting");
+            _logger.LogInfo("[Mediator] Broadcasting");
             foreach (var member in _fleet) {
                 await member.Value.Receive(message);
             }
         }
 
         public async Task DeliverPayload(string handle, NetworkMessage message) {
-            Console.WriteLine("Delivering Payload to " + handle);
+            _logger.LogInfo($"[Mediator] Delivering Payload to {handle}", ConsoleColor.DarkGray);
             if (!_fleet.ContainsKey(handle)) {
+                _logger.LogError($"No handle: {handle}");
                 return;
             }
             await _fleet[handle].Receive(message);
         }
 
         public async Task DeliverPayload(List<FleetMember> receivers, NetworkMessage message) {
-            foreach (var member in receivers) {
-                if (_fleet.ContainsKey(member.Handle)) {
-                    await member.Receive(message);
-                }
+            foreach (var member in receivers.Where(member => _fleet.ContainsKey(member.Handle))) {
+                await member.Receive(message);
             }
         }
 

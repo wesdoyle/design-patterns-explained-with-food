@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using RealisticDependencies;
 
 namespace BehavioralPatterns.Mediator.Vehicles {
-    public class HandCart : FleetMember {
+    public class PopUpShop : FleetMember {
 
-        public HandCart(
+        public PopUpShop(
             string handle, int lat, int lon, IApplicationLogger logger) 
             : base(logger, handle, lat, lon) {
         }
@@ -14,9 +14,9 @@ namespace BehavioralPatterns.Mediator.Vehicles {
             await Task.Delay(500);
             var payload = message.Read();
             var sendTime = message.GetTimestamp();
-            Logger.LogInfo($"[{Handle}] Received Message at {payload}: ({sendTime})", ConsoleColor.Magenta);
+            Logger.LogInfo($"[{Handle}] Received Message {payload} at ({sendTime})", ConsoleColor.DarkYellow);
             if (payload.Contains("thanks hand carts")) {
-                var returnMessage = new NetworkMessage("sure thing! 👍");
+                var returnMessage = new NetworkMessage("All Good! 🌿");
                 returnMessage.Sign(this);
                 await Mediator.Broadcast(returnMessage);
             }
@@ -29,7 +29,7 @@ namespace BehavioralPatterns.Mediator.Vehicles {
         }
 
         public override void SetMediator(IMediator mediator) {
-            Logger.LogInfo($"Registering Fleet Member: {Handle}", ConsoleColor.DarkBlue);
+            Logger.LogInfo($"[{Handle}] Registering with Fleet.", ConsoleColor.DarkYellow);
             Mediator = mediator;
         }
     }
