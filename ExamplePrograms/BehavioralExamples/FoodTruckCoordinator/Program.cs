@@ -1,7 +1,6 @@
 ﻿using BehavioralPatterns.Mediator;
 using BehavioralPatterns.Mediator.FoodCarts;
 using RealisticDependencies;
-using System;
 using System.Threading.Tasks;
 
 namespace FoodTruckCoordinator {

@@ -36,7 +36,7 @@ namespace ComposterSignUpForm {
 
             logger.LogInfo($"Thanks, {name}! A compost vehicle will stop to pick up your compost every Saturday", ConsoleColor.Green);
 
-            var newUserHandler = new NewUserHandler();
+            var newUserHandler = new NewUserHandler(logger);
 
             // Our SetOnStart and SetOnFinish methods prepare hooks in the business
             // process of signing a user up for service.

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BehavioralPatterns.Interpreter.Expressions {
+﻿namespace BehavioralPatterns.Interpreter.Expressions {
     public class QuantityExpression : IExpression {
         private readonly char _inputChar;
 

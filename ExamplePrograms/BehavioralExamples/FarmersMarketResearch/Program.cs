@@ -49,10 +49,10 @@ namespace FarmersMarketResearch {
 
             var reporter = new ReportRunner();
             logger.LogInfo("==== Generating Sales Reports ====");
-            reporter.RunReports(dataProcessors, new SaleDataVisitor());
+            reporter.RunReports(dataProcessors, new SaleDataVisitor(logger));
 
             logger.LogInfo("==== Generating Market Reports ====");
-            reporter.RunReports(dataProcessors, new MarketResearchReportVisitor());
+            reporter.RunReports(dataProcessors, new MarketResearchReportVisitor(logger));
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using BehavioralPatterns.TemplateMethod;
 using BehavioralPatterns.TemplateMethod.Recipes;
+using RealisticDependencies;
 
 namespace CookbookPrinter {
     internal class Program {
@@ -14,16 +14,15 @@ namespace CookbookPrinter {
         /// that defines our printing algorithm to print specific recipes for the book.
         /// </summary>
         private static void Main() {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine("📘 Welcome to the Cookbook Printer");
-            Console.WriteLine("-----------------------------------");
+            var logger = new ConsoleLogger();
+            logger.LogInfo("📘 Welcome to the Cookbook Printer");
 
             var clientRecipes = new List<CookbookRecipe> {
-                new CakeRecipe(), 
-                new CurryRecipe()
+                new CakeRecipe(logger), 
+                new CurryRecipe(logger)
             };
 
-            var cookbook = new Cookbook(clientRecipes);
+            var cookbook = new Cookbook(logger, clientRecipes);
 
             cookbook.Print();
         }

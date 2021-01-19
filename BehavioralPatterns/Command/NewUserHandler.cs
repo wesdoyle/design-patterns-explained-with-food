@@ -1,9 +1,15 @@
 ﻿using System;
+using RealisticDependencies;
 
 namespace BehavioralPatterns.Command {
     public class NewUserHandler {
+        private readonly IApplicationLogger _logger;
         private ICommand _onStart;
         private ICommand _onFinish;
+
+        public NewUserHandler(IApplicationLogger logger) {
+            _logger = logger;
+        }
 
         public void SetOnStart(ICommand command) {
             _onStart = command;
@@ -14,18 +20,16 @@ namespace BehavioralPatterns.Command {
         }
 
         public void SignUpUser() {
-            Console.ForegroundColor = ConsoleColor.Magenta;
             if (_onStart != null) {
-                Console.WriteLine("Running pre-process hook.");
+                _logger.LogInfo("Running pre-process hook.", ConsoleColor.DarkMagenta);
                 _onStart.Execute();
             }
 
-            Console.WriteLine("New user is signed up.");
+            _logger.LogInfo("New user is signed up.", ConsoleColor.DarkMagenta);
 
             if (_onFinish == null) return;
-            Console.WriteLine("Running post-process hook.");
+            _logger.LogInfo("Running post-process hook.", ConsoleColor.DarkMagenta);
             _onFinish.Execute();
-            Console.ResetColor();
         }
     }
 }

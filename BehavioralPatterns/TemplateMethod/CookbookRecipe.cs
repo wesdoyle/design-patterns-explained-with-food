@@ -1,7 +1,13 @@
 ﻿using System;
+using RealisticDependencies;
 
 namespace BehavioralPatterns.TemplateMethod {
     public abstract class CookbookRecipe {
+        protected readonly IApplicationLogger _logger;
+
+        public CookbookRecipe(IApplicationLogger logger) {
+            _logger = logger;
+        }
 
         // The template method defines the skeleton of an algorithm.
         // Steps are either implemented in the base class (here),
@@ -36,24 +42,23 @@ namespace BehavioralPatterns.TemplateMethod {
             PrintOptionalServingSuggestions();
         }
 
-        protected void PrintEquipmentHeading() {
+        private void PrintEquipmentHeading() {
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("~ Required Equipment ~");
+            _logger.LogInfo("~ Required Equipment ~");
             Console.ResetColor();
         }
 
-        protected void PrintIngredientsHeading() {
+        private void PrintIngredientsHeading() {
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("~ Ingredients List ~");
+            _logger.LogInfo("~ Ingredients List ~");
             Console.ResetColor();
         }
 
-        protected void PrintStepsHeading() {
+        private void PrintStepsHeading() {
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("~ Cooking Steps ~");
+            _logger.LogInfo("~ Cooking Steps ~");
             Console.ResetColor();
         }
-
 
         // These operations have to be implemented in CookbookRecipe subclasses.
         protected abstract void PrintTitle();
