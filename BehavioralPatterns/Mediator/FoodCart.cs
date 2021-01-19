@@ -8,18 +8,18 @@ namespace BehavioralPatterns.Mediator {
         protected IApplicationLogger Logger;
         protected int Latitude;
         protected int Longitude;
+        public string Handle { get; }
 
-        public FoodCart(IApplicationLogger logger, int lat, int lon) 
-            => (Logger, Latitude, Longitude) = (logger, lat, lon);
+        public FoodCart(IApplicationLogger logger, string handle, int lat, int lon) 
+            => (Logger, Handle, Latitude, Longitude) = (logger, handle, lat, lon);
 
         protected FoodCart(IMediator mediator = null) => Mediator = mediator;
 
-        public abstract Task Receive(ICommunicates sender, NetworkMessage message);
+        public abstract Task Receive(NetworkMessage message);
 
-        public abstract Task Send(ICommunicates receiver, NetworkMessage message);
+        public abstract Task Send(ICommunicates foodCart, NetworkMessage message);
 
-        public void SetMediator(IMediator mediator) 
-            => Mediator = mediator;
+        public void SetMediator(IMediator mediator) => Mediator = mediator;
 
         public async Task SignalLocation() {
             await Task.Delay(250);

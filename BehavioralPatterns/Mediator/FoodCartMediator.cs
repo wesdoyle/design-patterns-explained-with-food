@@ -1,33 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BehavioralPatterns.Mediator.FoodCarts;
 
 namespace BehavioralPatterns.Mediator {
     public class FoodCartMediator : IMediator {
-        private readonly BicycleCart _bicycleCart;
-        private readonly TruckCart _truckCart;
 
-        public FoodCartMediator(BicycleCart bicycleCart, TruckCart truckCart) {
-            _bicycleCart = bicycleCart;
-            _bicycleCart.SetMediator(this);
-            _truckCart = truckCart;
-            _truckCart.SetMediator(this);
+        private Dictionary<string, ICommunicates> _fleet;
+
+        /// <summary>
+        /// We could initialize the mediator with a collection of ICommunicators
+        /// </summary>
+        public FoodCartMediator() { }
+
+        public async Task Broadcast(NetworkMessage message) {
+            foreach (var member in _fleet) {
+                await member.Value.Receive(message);
+            }
         }
 
-        public Task Broadcast(NetworkMessage ev) {
-            throw new NotImplementedException();
+        public async Task DeliverPayload(string handle, NetworkMessage message) {
+            if (!_fleet.ContainsKey(handle)) {
+                return;
+            }
+            await _fleet[handle].Receive(message);
         }
 
-        public Task DeliverPayload(ICommunicates sender, NetworkMessage ev) {
-            throw new NotImplementedException();
+        public async Task DeliverPayload(List<FoodCart> receivers, NetworkMessage message) {
+            foreach (var member in receivers) {
+                if (_fleet.ContainsKey(member.Handle)) {
+                    await member.Receive(message);
+                }
+            }
         }
 
-        public Task DeliverPayload(List<ICommunicates> sender, NetworkMessage ev) {
-            throw new NotImplementedException();
+        public async Task Register(ICommunicates fleetMember) {
+            await Task.Delay(250);
+            if (!_fleet.ContainsKey(fleetMember.Handle)) {
+                _fleet[fleetMember.Handle] = fleetMember;
+            }
+            fleetMember.SetMediator(this);
         }
 
-        public Task Register(ICommunicates sender) {
+        public Task Register(FoodCart member) {
             throw new NotImplementedException();
         }
     }
