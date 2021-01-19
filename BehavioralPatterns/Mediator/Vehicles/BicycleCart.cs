@@ -3,11 +3,8 @@ using System;
 using System.Threading.Tasks;
 
 namespace BehavioralPatterns.Mediator.FoodCarts {
-    public class BicycleCart : FoodCart {
-        private IMediator _network;
-        private readonly IApplicationLogger _logger;
+    public class BicycleCart : FleetMember {
         private readonly IDatabase _database;
-        private readonly string _handle;
 
         public BicycleCart(
             string handle, 
@@ -23,19 +20,23 @@ namespace BehavioralPatterns.Mediator.FoodCarts {
             await Task.Delay(500);
             var payload = message.Read();
             var sendTime = message.GetTimestamp();
-            _logger.LogInfo($"[{_handle}] Received Message at {payload}: ({sendTime})", ConsoleColor.Magenta);
+            Logger.LogInfo($"[{Handle}] Received Message at {payload}: ({sendTime})", ConsoleColor.Magenta);
             if (payload.Contains("thanks bikes")) {
                 var returnMessage = new NetworkMessage("no problem! 👍");
                 returnMessage.Sign(this);
-                await _network.Broadcast(returnMessage);
+                await Mediator.Broadcast(returnMessage);
             }
         }
 
         public override async Task Send(ICommunicates receiver, NetworkMessage message) {
             await Task.Delay(500);
             message.Sign(this);
-            await _network.DeliverPayload(receiver.Handle, message);
+            await Mediator.DeliverPayload(receiver.Handle, message);
         }
 
+        public override void SetMediator(IMediator mediator) {
+            Logger.LogInfo($"Registering Fleet Member: {Handle}", ConsoleColor.DarkBlue);
+            Mediator = mediator;
+        }
     }
 }

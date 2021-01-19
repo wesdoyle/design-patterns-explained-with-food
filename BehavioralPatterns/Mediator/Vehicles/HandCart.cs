@@ -3,10 +3,7 @@ using System;
 using System.Threading.Tasks;
 
 namespace BehavioralPatterns.Mediator.FoodCarts {
-    public class HandCart : FoodCart {
-        private readonly IMediator _network;
-        private readonly IApplicationLogger _logger;
-        private readonly string _handle;
+    public class HandCart : FleetMember {
 
         public HandCart(
             string handle, int lat, int lon, IApplicationLogger logger) 
@@ -17,18 +14,23 @@ namespace BehavioralPatterns.Mediator.FoodCarts {
             await Task.Delay(500);
             var payload = message.Read();
             var sendTime = message.GetTimestamp();
-            _logger.LogInfo($"[{_handle}] Received Message at {payload}: ({sendTime})", ConsoleColor.Magenta);
+            Logger.LogInfo($"[{Handle}] Received Message at {payload}: ({sendTime})", ConsoleColor.Magenta);
             if (payload.Contains("thanks hand carts")) {
                 var returnMessage = new NetworkMessage("sure thing! 👍");
                 returnMessage.Sign(this);
-                await _network.Broadcast(returnMessage);
+                await Mediator.Broadcast(returnMessage);
             }
         }
 
         public override async Task Send(ICommunicates receiver, NetworkMessage message) {
             await Task.Delay(500);
             message.Sign(this);
-            await _network.DeliverPayload(receiver.Handle, message);
+            await Mediator.DeliverPayload(receiver.Handle, message);
+        }
+
+        public override void SetMediator(IMediator mediator) {
+            Logger.LogInfo($"Registering Fleet Member: {Handle}", ConsoleColor.DarkBlue);
+            Mediator = mediator;
         }
     }
 }

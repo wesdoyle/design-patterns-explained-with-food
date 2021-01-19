@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace BehavioralPatterns.Mediator {
     public class FoodCartMediator : IMediator {
 
-        private Dictionary<string, ICommunicates> _fleet;
+        private readonly Dictionary<string, ICommunicates> _fleet = new();
 
         /// <summary>
         /// We could initialize the mediator with a collection of ICommunicators
@@ -13,19 +13,21 @@ namespace BehavioralPatterns.Mediator {
         public FoodCartMediator() { }
 
         public async Task Broadcast(NetworkMessage message) {
+            Console.WriteLine("Broadcasting");
             foreach (var member in _fleet) {
                 await member.Value.Receive(message);
             }
         }
 
         public async Task DeliverPayload(string handle, NetworkMessage message) {
+            Console.WriteLine("Delivering Payload to " + handle);
             if (!_fleet.ContainsKey(handle)) {
                 return;
             }
             await _fleet[handle].Receive(message);
         }
 
-        public async Task DeliverPayload(List<FoodCart> receivers, NetworkMessage message) {
+        public async Task DeliverPayload(List<FleetMember> receivers, NetworkMessage message) {
             foreach (var member in receivers) {
                 if (_fleet.ContainsKey(member.Handle)) {
                     await member.Receive(message);
@@ -39,10 +41,6 @@ namespace BehavioralPatterns.Mediator {
                 _fleet[fleetMember.Handle] = fleetMember;
             }
             fleetMember.SetMediator(this);
-        }
-
-        public Task Register(FoodCart member) {
-            throw new NotImplementedException();
         }
     }
 }

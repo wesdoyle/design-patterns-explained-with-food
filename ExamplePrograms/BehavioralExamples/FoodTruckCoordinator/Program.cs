@@ -21,19 +21,23 @@ namespace FoodTruckCoordinator {
 
             var deliveryNetwork = new FoodCartMediator();
 
-            var tacoTruck = new FoodTruck("Taco Guy", 4, 2, logger, truckDatabase);
-            var falafelCart = new BicycleCart("Falafel Cart", 4, 8, logger, bikeDatabase);
-            var sushiCart = new BicycleCart("Sushi Cart", 2, 8, logger, bikeDatabase);
-            var sandwichCart = new HandCart("Sandwiches", 1, 8, logger);
+            var tacoTruck = new FoodTruck("Taco Truck", 4, 2, logger, truckDatabase);
+            var falafelCart = new BicycleCart("Falafel Bicycle", 4, 8, logger, bikeDatabase);
+            var sushiCart = new BicycleCart("Sushi Bicycle", 2, 8, logger, bikeDatabase);
+            var sandwichCart = new HandCart("Sandwich Hande Cart", 1, 8, logger);
 
             await deliveryNetwork.Register(tacoTruck);
             await deliveryNetwork.Register(falafelCart);
             await deliveryNetwork.Register(sushiCart);
             await deliveryNetwork.Register(sandwichCart);
 
-            await tacoTruck.Send(sushiCart, new NetworkMessage(tacoTruck, "Moving to the East Side."));
+            await tacoTruck.Send(sushiCart, new NetworkMessage("Moving to the East Side."));
 
-            await sushiCart.Send(sushiCart, new NetworkMessage(sushiCart, "thanks trucks"));
+            await sushiCart.Send(sushiCart, new NetworkMessage("thanks trucks"));
+
+            await sandwichCart.Send(falafelCart, new NetworkMessage("All done here by the lake!"));
+
+            await falafelCart.Send(falafelCart, new NetworkMessage("thanks hand carts!"));
         }
     }
 }
