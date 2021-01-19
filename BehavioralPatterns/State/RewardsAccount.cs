@@ -25,16 +25,16 @@ namespace BehavioralPatterns.State {
         public void OnPurchase(int points) {
             _state.OnPurchase(points);
             _logger.LogInfo($"You earned {points} points", ConsoleColor.Green);
-            _logger.LogInfo($"Current Points= {PointsBalance}", ConsoleColor.Green);
-            _logger.LogInfo($"Rewards Status = {RewardsTier.GetType().Name}", ConsoleColor.Green);
+            _logger.LogInfo($"Current Points: {PointsBalance}", ConsoleColor.Green);
+            _logger.LogInfo($"Rewards Status: {RewardsTier.GetType().Name}", ConsoleColor.Green);
             _logger.LogInfo($"-------------------------------");
         }
  
         public void UsePoints(int points) {
             _state.UsePoints(points);
             _logger.LogInfo($"You used {points} points", ConsoleColor.Yellow);
-            _logger.LogInfo($"Current Points= {PointsBalance}", ConsoleColor.Yellow);
-            _logger.LogInfo($"Rewards Status = {RewardsTier.GetType().Name}", ConsoleColor.Yellow);
+            _logger.LogInfo($"Current Points: {PointsBalance}", ConsoleColor.Yellow);
+            _logger.LogInfo($"Rewards Status: {RewardsTier.GetType().Name}", ConsoleColor.Yellow);
             _logger.LogInfo($"-------------------------------");
         }
     }
