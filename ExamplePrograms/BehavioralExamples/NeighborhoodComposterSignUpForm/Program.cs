@@ -40,8 +40,8 @@ namespace ComposterSignUpForm {
 
             // Our SetOnStart and SetOnFinish methods prepare hooks in the business
             // process of signing a user up for service.
-            newUserHandler.SetOnStart(new NewCustomerEmailCommand(emailer, name, emailAddress));
-            newUserHandler.SetOnFinish(new AddressQueueCommand(cloudQueue, address));
+            newUserHandler.SetOnStart(new NewCustomerEmailCommand(logger, emailer, name, emailAddress));
+            newUserHandler.SetOnFinish(new AddressQueueCommand(logger, cloudQueue, address));
 
             newUserHandler.SignUpUser();
         }

@@ -47,7 +47,7 @@ namespace FarmersMarketResearch {
                     floristDataProcessor
                 };
 
-            var reporter = new ReportRunner();
+            var reporter = new ReportRunner(logger);
             logger.LogInfo("==== Generating Sales Reports ====");
             reporter.RunReports(dataProcessors, new SaleDataVisitor(logger));
 
