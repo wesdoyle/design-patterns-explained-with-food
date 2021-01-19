@@ -2,9 +2,7 @@
 
 namespace BehavioralPatterns.Mediator {
     public class NetworkMessage {
-        public NetworkMessage(
-            ICommunicates from, 
-            string payload) => (_from, _payload) = (from, payload);
+        public NetworkMessage(string payload) => (_payload) = (payload);
 
         private DateTime _timeSent = DateTime.UtcNow;
 
@@ -18,6 +16,9 @@ namespace BehavioralPatterns.Mediator {
 
         public string Read() => _payload;
 
-        public string Sign(string signature) => _payload = $"{signature} : {_payload}";
+        public string Sign(ICommunicates signature) {
+            _from = signature;
+            return _payload = $"{signature.Handle} : {_payload}";
+        }
     }
 }
