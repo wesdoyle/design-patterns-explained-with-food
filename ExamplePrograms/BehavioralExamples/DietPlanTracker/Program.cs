@@ -1,12 +1,15 @@
 ﻿using System;
 using BehavioralPatterns.Observer;
 using BehavioralPatterns.Observer.Observers;
+using RealisticDependencies;
 
 namespace DietPlanTracker {
     internal class Program {
         private static void Main() {
-            Console.WriteLine("------------------------------------------------------------");
-            // The client code.
+            var logger = new ConsoleLogger();
+            logger.LogInfo("😅 Welcome to the Diet Plan Client");
+            logger.LogInfo("----------------------------------");
+                
             var subject = new Subject();
 
             var profileObserver = new ProfileObserver();
