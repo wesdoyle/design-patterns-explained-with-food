@@ -1,7 +1,7 @@
 ﻿using BehavioralPatterns.Mediator;
-using BehavioralPatterns.Mediator.FoodCarts;
 using RealisticDependencies;
 using System.Threading.Tasks;
+using BehavioralPatterns.Mediator.Vehicles;
 
 namespace FoodTruckCoordinator {
     internal class Program {
@@ -12,7 +12,6 @@ namespace FoodTruckCoordinator {
         /// don't occupy the same parking spots throughout the city.
         /// We use a Mediator to eliminate mutual dependencies among our network of trucks.
         /// </summary>
-        /// <param name="args"></param>
         private static async Task Main() {
             var logger = new ConsoleLogger();
             var bikeDatabase = new Database(Configuration.ConnectionString, logger);

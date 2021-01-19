@@ -1,9 +1,9 @@
-﻿using BehavioralPatterns.Iterator.Iterators;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using BehavioralPatterns.Iterator.Iterators;
 
-namespace BehavioralPatterns.Iterator {
+namespace BehavioralPatterns.Iterator.Aggregates {
     public class RestaurantCollection : Aggregate {
         private List<Restaurant> _restaurants = new();
         private bool _isPopularitySorted;

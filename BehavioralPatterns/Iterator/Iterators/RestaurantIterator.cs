@@ -1,4 +1,6 @@
-﻿namespace BehavioralPatterns.Iterator.Iterators {
+﻿using BehavioralPatterns.Iterator.Aggregates;
+
+namespace BehavioralPatterns.Iterator.Iterators {
     public class RestaurantIterator : Iterator {
         private RestaurantCollection _collection;
         private int _currentPosition = 0;

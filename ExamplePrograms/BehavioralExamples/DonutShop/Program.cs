@@ -1,9 +1,9 @@
-﻿using BehavioralPatterns.Memento;
-using RealisticDependencies;
-using System;
+﻿using System;
 using System.Threading;
+using BehavioralPatterns.Memento;
+using RealisticDependencies;
 
-namespace DonutShop {
+namespace DoughnutShop {
     internal class Program {
         protected static void Main() {
             var logger = new ConsoleLogger();

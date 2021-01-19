@@ -1,8 +1,8 @@
-﻿using RealisticDependencies;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using RealisticDependencies;
 
-namespace BehavioralPatterns.Mediator.FoodCarts {
+namespace BehavioralPatterns.Mediator.Vehicles {
     public class HandCart : FleetMember {
 
         public HandCart(

@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using RealisticDependencies;
 
 namespace BehavioralPatterns.Mediator {
     public class FoodCartMediator : IMediator {
+        private readonly IApplicationLogger _logger;
 
         private readonly Dictionary<string, ICommunicates> _fleet = new();
 
         /// <summary>
         /// We could initialize the mediator with a collection of ICommunicators
         /// </summary>
-        public FoodCartMediator() { }
+        public FoodCartMediator(IApplicationLogger logger) {
+            _logger = logger;
+        }
 
         public async Task Broadcast(NetworkMessage message) {
             Console.WriteLine("Broadcasting");

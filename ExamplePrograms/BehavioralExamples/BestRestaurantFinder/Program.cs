@@ -1,6 +1,7 @@
 ﻿using BehavioralPatterns.Iterator;
 using RealisticDependencies;
 using System;
+using BehavioralPatterns.Iterator.Aggregates;
 
 namespace BestRestaurantFinder {
     internal class Program {

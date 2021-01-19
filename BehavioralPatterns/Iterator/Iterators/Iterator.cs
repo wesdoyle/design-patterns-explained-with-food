@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace BehavioralPatterns.Iterator {
+namespace BehavioralPatterns.Iterator.Iterators {
     /// <summary>
     /// Here we extend System.Collections IEnumerator,
     /// which defines all the methods we need to iterate
