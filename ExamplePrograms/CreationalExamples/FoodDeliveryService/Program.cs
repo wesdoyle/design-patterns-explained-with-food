@@ -17,12 +17,17 @@ namespace FoodDeliveryService {
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
-        private static int Main(string[] args) {
+        private static int Main() {
+            // Client serves as a simple composition root for dependencies
             var logger = new ConsoleLogger();
+            IAmqpQueue deliveryQueue = new CloudQueue(logger);
+
             logger.LogInfo("🚚  Welcome to the Food Delivery Service!");
             logger.LogInfo("------------------------------------------");
             logger.LogInfo("Please enter a delivery type.");
 
+            // Collect data at runtime which will ultimately determine 
+            // the chosen implementation of IDeliversFood
             var deliveryType = Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(deliveryType)) {
@@ -31,8 +36,13 @@ namespace FoodDeliveryService {
             }
 
             try {
-                IAmqpQueue deliveryQueue = new CloudQueue(logger);
-                var deliveryCreator = BuildDeliveryCreator(deliveryType, deliveryQueue);
+                // The client code here deals with business logic at a higher level of abstraction than
+                // any of the details related to "how" things actually get delivered.
+                // Here we just want to be able to queue up something that delivers food so
+                // we can complete our delivery. We can facilitate binding the concrete type as late as possible 
+                // by choosing to work with the abstract type here. We don't depend on implementation details - 
+                // we depend on abstractions.
+                DeliveryCreator deliveryCreator = BuildDeliveryCreator(deliveryType, deliveryQueue);
                 deliveryCreator.QueueVehicleForDelivery();
 
             } catch (Exception e) {
@@ -43,26 +53,33 @@ namespace FoodDeliveryService {
             return 0;
         }
 
-        public static DeliveryCreator BuildDeliveryCreator( string deliveryType, IAmqpQueue deliveryQueue) {
+        /// <summary>
+        /// Invoked by the client (our Main method).  This method decides based on data at run-time
+        /// which DeliveryCreator type we're eventually binding.  Thanks to (dynamic) polymorphism, the
+        /// compiler is cool with us declaring the return type of this method as an abstract type.
+        /// even though it will return a concrete subclass.
+        /// In this case, the decision of which concrete type will eventually be bound is made by evaluating the 
+        /// value of a string `deliveryType` provided by the user of our client.
+        /// </summary>
+        /// <param name="deliveryType"></param>
+        /// <param name="deliveryQueue"></param>
+        /// <returns></returns>
+        public static DeliveryCreator BuildDeliveryCreator(string deliveryType, IAmqpQueue deliveryQueue) {
 
             var logger = new ConsoleLogger();
 
-            List<string> validDeliveryOptions = new List<string> { "bicycle", "car" };
+            List<string> validDeliveryOptions = new() { "bicycle", "car" };
 
             if (!validDeliveryOptions.Contains(deliveryType)) {
                 logger.LogInfo("Please enter a type of delivery [bicycle, car]");
                 throw new InvalidOperationException("Cannot set up delivery without valid deliveryType.");
             }
 
-            if (deliveryType == "bicycle") {
-                return new BicycleDeliveryCreator(deliveryQueue);
-            }
-
-            if (deliveryType == "car") {
-                return new CarDeliveryCreator(deliveryQueue);
-            }
-
-            throw new InvalidOperationException("Cannot set up delivery without valid Delivery Type.");
+            return deliveryType switch {
+                "bicycle" => new BicycleDeliveryCreator(deliveryQueue, logger),
+                "car" => new CarDeliveryCreator(deliveryQueue, logger),
+                _ => throw new InvalidOperationException("Cannot set up delivery without valid Delivery Type."),
+            };
         }
     }
 }

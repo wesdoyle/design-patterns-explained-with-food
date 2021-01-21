@@ -4,7 +4,11 @@ using System;
 
 namespace CreationalPatterns.FactoryMethod {
     public class BicycleDeliveryCreator : DeliveryCreator {
-        public BicycleDeliveryCreator(IAmqpQueue deliveryQueue) : base(deliveryQueue) { }
+        public BicycleDeliveryCreator(IAmqpQueue deliveryQueue, IApplicationLogger logger) : base(deliveryQueue, logger) { }
+        /// <summary>
+        /// Factory Method for creating a new Bicycle (IDeliversFood implementation)
+        /// </summary>
+        /// <returns>Bicycle instance</returns>
         protected override IDeliversFood RegisterVehicle() {
             var bicycle = new Bicycle { 
                 Color = "blue",
@@ -12,7 +16,7 @@ namespace CreationalPatterns.FactoryMethod {
                 Make = "Trek",
                 Model = "Foo",
             };
-            Console.WriteLine("Registering a Bicycle to deliver food!");
+            _logger.LogInfo("Registering a Bicycle to deliver food!", ConsoleColor.Cyan);
             return bicycle;
         }
     }

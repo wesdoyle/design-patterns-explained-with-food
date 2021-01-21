@@ -7,14 +7,17 @@ namespace CreationalPatterns.FactoryMethod {
     // that returns an IDeliversFood object
     public abstract class DeliveryCreator {
         private readonly IAmqpQueue _deliveryQueue;
+        protected readonly IApplicationLogger _logger;
 
         public DeliveryCreator() { }
 
-        public DeliveryCreator(IAmqpQueue deliveryQueue) {
+        public DeliveryCreator(IAmqpQueue deliveryQueue, IApplicationLogger logger) {
             _deliveryQueue = deliveryQueue;
+            _logger = logger;
         }
 
-        // We could provide a default concrete implementation here if we wanted, too!
+        // The Factory Method
+        // We could provide a default implementation here if we wanted, too!
         protected abstract IDeliversFood RegisterVehicle();
 
         public void QueueVehicleForDelivery() {
@@ -22,7 +25,7 @@ namespace CreationalPatterns.FactoryMethod {
             var vehiclePayload = JsonConvert.SerializeObject(vehicle);
             var queueMessage = new QueueMessage(vehiclePayload);
             _deliveryQueue.Add(queueMessage);
-            Console.WriteLine($"Queued up vehicle of type {vehicle.GetType()} for food delivery.");
+            _logger.LogInfo($"Queued up vehicle of type {vehicle.GetType()} for food delivery.");
         }
     }
 }
