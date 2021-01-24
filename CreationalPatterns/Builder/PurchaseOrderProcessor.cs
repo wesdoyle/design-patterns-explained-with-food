@@ -16,7 +16,7 @@ namespace CreationalPatterns.Builder {
             _database = database;
         }
         
-        public async Task GenerateWeeklyPurchaseOrder(IPurchaseOrderBuilder poBuilder) {
+        public async Task GenerateWeeklyPurchaseOrder(IBuildsPurchaseOrders poBuilder) {
             var po = poBuilder.BuildPurchaseOrder();
             PrintPurchaseOrder(po);
             await SavePurchaseOrderToDatabase(po);

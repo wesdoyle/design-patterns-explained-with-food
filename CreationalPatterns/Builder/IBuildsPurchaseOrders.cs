@@ -1,5 +1,5 @@
 ﻿namespace CreationalPatterns.Builder {
-    public interface IPurchaseOrderBuilder {
+    public interface IBuildsPurchaseOrders {
         void SetId();
         void SetCompany();
         void SetAddress();
