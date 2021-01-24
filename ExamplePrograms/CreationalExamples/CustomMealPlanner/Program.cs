@@ -33,9 +33,9 @@ namespace CustomMealPlanner {
 
             try {
                 var dietType = GetCustomerDietFromDatabase(customerEmail);
-                var mealPlanFactory = GetFactoryForDietType(dietType);
+                var mealPlanFactory = GetFactoryForDietType(dietType, logger);
                 ISendsEmails emailer = new Emailer(logger);
-                IMealPlanService mealPlanService = new MealPlanService(mealPlanFactory, emailer);
+                IMealPlanService mealPlanService = new MealPlanService(mealPlanFactory, emailer, logger);
                 await mealPlanService.SendDessertsPlanToSubscriber(customerEmail);
 
             } catch (Exception e) {
@@ -52,11 +52,11 @@ namespace CustomMealPlanner {
                 : "vegetarian";
         }
 
-        public static IMealPlanFactory GetFactoryForDietType(string dietType) 
+        public static IMealPlanFactory GetFactoryForDietType(string dietType, IApplicationLogger logger) 
             => dietType switch {
-                "keto" => new KetoMealPlanFactory(),
-                "vegetarian" => new VegetarianMealPlanFactory(),
-                _ => new VegetarianMealPlanFactory()
+                "keto" => new KetoMealPlanFactory(logger),
+                "vegetarian" => new VegetarianMealPlanFactory(logger),
+                _ => new VegetarianMealPlanFactory(logger)
             };
     }
 }

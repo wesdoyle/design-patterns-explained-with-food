@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace CreationalPatterns.AbstractFactory.MealPlans.Keto {
     public class KetoDessertMenu : IMenu {
-        public List<string> MakeShoppingList()
-            => new() { "peanut butter", "dark chocolate", "ricotta" };
-
         public void PrintDescription() 
             => Console.WriteLine("The Keto dessert menu features high-fat, sugar-free " +
                 "chocolate bars and high-fat low carb cheesecake");
