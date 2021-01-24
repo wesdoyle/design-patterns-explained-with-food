@@ -19,7 +19,7 @@ namespace BehavioralPatterns.Strategy.Strategies {
         }
 
         /// <summary>
-        /// The method required by the interace to implement this strategy
+        /// The method required by the interface to implement this strategy
         /// </summary>
         /// <returns></returns>
         public async Task<Menu> GenerateMenu() {
