@@ -1,5 +1,4 @@
-﻿using BehavioralPatterns.Iterator;
-using RealisticDependencies;
+﻿using RealisticDependencies;
 using System;
 using BehavioralPatterns.Iterator.Aggregates;
 

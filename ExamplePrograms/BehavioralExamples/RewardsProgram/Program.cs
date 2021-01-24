@@ -1,5 +1,4 @@
-﻿using System;
-using BehavioralPatterns.State;
+﻿using BehavioralPatterns.State;
 using RealisticDependencies;
 
 namespace RewardsProgram {

@@ -1,5 +1,4 @@
-﻿using System;
-using BehavioralPatterns.Observer;
+﻿using BehavioralPatterns.Observer;
 using BehavioralPatterns.Observer.Observers;
 using RealisticDependencies;
 

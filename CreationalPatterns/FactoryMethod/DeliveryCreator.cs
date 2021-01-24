@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using RealisticDependencies;
-using System;
 
 namespace CreationalPatterns.FactoryMethod {
     // Creator class.  This class declares the factory method `RegisterVehicle` 

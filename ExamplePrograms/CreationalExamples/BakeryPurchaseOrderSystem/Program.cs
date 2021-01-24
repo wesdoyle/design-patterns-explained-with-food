@@ -1,61 +1,66 @@
-﻿using CreationalPatterns.Builder;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using static CreationalPatterns.Builder.Models;
+using System.Threading.Tasks;
+using CreationalPatterns.Builder;
+using CreationalPatterns.Builder.Builders;
+using RealisticDependencies;
 
 namespace BakeryPurchaseOrderSystem {
     /// <summary>
     /// Here we have a PO Builder that we use to generate purchase orders for our bakery.
     /// Creating a new instance of a Purchase Order can be a confusing and lengthy process.
     /// To improve the experience of instantiating new Purchase Order objects, and to make
-    /// the semantics more clear, we make use the Builder Pattern.
+    /// the semantics more clear, we make use of the Builder Pattern.
     /// One of the design benefits of the Builder Pattern is that the algorithms for constructing
     /// an object are independent of the parts that make up the object and how they're assembled.
-    /// In C#, we can also make it very easy to cast our Builder (where the construction logic is defined)
-    /// into the Type of object it builds using an implicit operator.
+    /// We can demonstrate two types of builder pattern approaches:
+    /// - Builder + Director collaboration,
+    ///     where depending on the concrete type of Builder provided to the Director, a different PO will be generated.
+    ///     We can encapsulate the building of a PO for particular vendors in their own Builder Types.
+    /// - Fluent Builder pattern,
+    ///     We allow the creation of custom Purchase orders using a fluent syntax to set custom properties on 
+    ///     instances of the same PurchaseOrder type. In C#, we can also make it very easy to cast our Builder
+    ///     (where the construction logic is defined) into the Type of object it builds using an implicit operator.
     /// </summary>
     internal class Program {
-        private static void Main() {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
+        private async static Task Main() {
 
-            var orderBuilder = new PurchaseOrderBuilder();
+            // First Approach - Typical GoF Builder Pattern (Director <- Builder)
+            var logger = new ConsoleLogger();
+            var database = new Database(Configuration.ConnectionString, logger);
+            
+            // Concrete Builders
+            var bakeryPoBuilder = new BakeryPurchaseOrderBuilder();
+            var coffeePoBuilder = new CoffeePurchaseOrderBuilder();
 
-            var breadSupplier = new Supplier("Bulk Food Depot", "orders@example.com", "Doug");
+            // Director 
+            var poProcessor = new PurchaseOrderProcessor(logger, database);
+            
+            await poProcessor.GenerateWeeklyPurchaseOrder(bakeryPoBuilder);
+            await poProcessor.GenerateWeeklyPurchaseOrder(coffeePoBuilder);
+            
+            
+            // Second Approach - "Custom" builder using a fluent syntax
+            var customOrder = new FluentPurchaseOrderBuilder();
 
-            var orderItems = new List<LineItem> {
-                new LineItem("bread flour", 4, 1.2m),
-                new LineItem("salt", 2, 0.3m),
-                new LineItem("yeast", 8, 0.75m),
+            var items = new List<Models.LineItem> {
+                new("cups", 100, 1.0m),
+                new("napkins", 250, 0.3m),
             };
 
-            PurchaseOrder breadSuppliesOrder = orderBuilder
-                .WithId("b_123")
-                .ForCompany("Riverrun Bakery")
-                .AtAddress("2828 Main St")
-                .FromSupplier(breadSupplier)
-                .ForItems(orderItems)
-                .RequestDate(DateTime.UtcNow.AddDays(5))
-                .BuildPurchaseOrder();
+            var supplier = new Models.Supplier("Jenkins", "contact@productivedev.com", "C.I. Jenkins");
+            
+            customOrder
+                .WithId("Custom_Order")
+                .AtAddress("123 Riverrun Lane")
+                .ForCompany("Productive Dev")
+                .FromSupplier(supplier)
+                .RequestDate(DateTime.UtcNow.AddDays(2))
+                .ForItems(items);
 
-            PrintPurchaseOrder(breadSuppliesOrder);
+            await poProcessor.SavePurchaseOrderToDatabase(customOrder);
+            poProcessor.PrintPurchaseOrder(customOrder);
         }
 
-        private static void PrintPurchaseOrder(PurchaseOrder order) {
-            Console.WriteLine($"----------------------------------------");
-            Console.WriteLine($"== 📝 Generated Purchase Order");
-            Console.WriteLine($"----------------------------------------");
-            Console.WriteLine($"== ID: {order.Id} | {order.CreatedOn}");
-            Console.WriteLine($"== {order.CompanyName}");
-            Console.WriteLine($"== {order.CompanyAddress}");
-            Console.WriteLine($"----------------------------------------");
-            Console.WriteLine($"== Supplier: {order.Supplier.Name}");
-            foreach (var item in order.LineItems) {
-                Console.WriteLine($"  - {item.Qty} x {item.Name} @{Math.Round(item.UnitCost, 2)})");
-            }
-            Console.WriteLine($"== PO Total: $ {Math.Round(order.TotalCost, 2) }");
-            Console.WriteLine($"----------------------------------------");
-            Console.WriteLine($"== Requested By: {order.RequestDate})");
-            Console.WriteLine($"----------------------------------------");
-        }
     }
 }
