@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using static CreationalPatterns.Builder.Models;
 
-namespace CreationalPatterns.Builder {
-    public class PurchaseOrderBuilder : IPurchaseOrderBuilder {
+namespace CreationalPatterns.Builder.Builders {
+    /// <summary>
+    /// Variation on the builder pattern that provides a Fluent syntax for constructing a new PurchaseOrder instance
+    /// </summary>
+    public class FluentPurchaseOrderBuilder : IFluentPurchaseOrderBuilder {
 
         private string _id;
         private DateTime _requestDate;
@@ -12,38 +15,39 @@ namespace CreationalPatterns.Builder {
         private Supplier _supplier;
         private IEnumerable<LineItem> _lineItems;
 
-        public IPurchaseOrderBuilder WithId(string id) {
+        public IFluentPurchaseOrderBuilder WithId(string id) {
             _id = id;
             return this;
         }
 
-        public IPurchaseOrderBuilder RequestDate(DateTime date) {
+        public IFluentPurchaseOrderBuilder RequestDate(DateTime date) {
             _requestDate = date;
             return this;
         }
 
-        public IPurchaseOrderBuilder AtAddress(string address) {
+        public IFluentPurchaseOrderBuilder AtAddress(string address) {
             _companyAddress = address;
             return this;
         }
 
-        public IPurchaseOrderBuilder ForCompany(string companyName) {
+        public IFluentPurchaseOrderBuilder ForCompany(string companyName) {
             _companyName = companyName;
             return this;
         }
 
-        public IPurchaseOrderBuilder ForItems(List<LineItem> lineItems) {
+        public IFluentPurchaseOrderBuilder ForItems(List<LineItem> lineItems) {
             _lineItems = lineItems;
             return this;
         }
 
-        public IPurchaseOrderBuilder FromSupplier(Supplier supplier) {
+        public IFluentPurchaseOrderBuilder FromSupplier(Supplier supplier) {
             _supplier = supplier;
             return this;
         }
 
         public PurchaseOrder BuildPurchaseOrder() {
-            return new PurchaseOrder {
+            return new()
+            {
                 Id = _id,
                 CreatedOn = DateTime.UtcNow,
                 CompanyName = _companyName,
@@ -54,7 +58,7 @@ namespace CreationalPatterns.Builder {
             };
         }
 
-        public static implicit operator PurchaseOrder(PurchaseOrderBuilder builder) {
+        public static implicit operator PurchaseOrder(FluentPurchaseOrderBuilder builder) {
             return builder.BuildPurchaseOrder();
         }
     }

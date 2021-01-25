@@ -54,7 +54,7 @@ namespace FoodDeliveryService {
         }
 
         /// <summary>
-        /// Invoked by the client (our Main method).  This method decides based on data at run-time
+        /// Factory Method invoked by the client (our Main method).  This method decides based on data at run-time
         /// which DeliveryCreator type we're eventually binding.  Thanks to (dynamic) polymorphism, the
         /// compiler is cool with us declaring the return type of this method as an abstract type.
         /// even though it will return a concrete subclass.
