@@ -46,8 +46,7 @@ namespace CreationalPatterns.Builder.Builders {
         }
 
         public PurchaseOrder BuildPurchaseOrder() {
-            return new()
-            {
+            return new() {
                 Id = _id,
                 CreatedOn = DateTime.UtcNow,
                 CompanyName = _companyName,
