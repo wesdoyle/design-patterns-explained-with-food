@@ -25,7 +25,7 @@ namespace StructuralPatterns.Composite {
 
         public override void Remove(TeaCarton carton) {
             Console.WriteLine($"Removing a carton of {carton} to the MixAndMatchBundle.");
-            SubCartons.Add(carton);
+            SubCartons.Remove(carton);
         }
 
         public override int GetNumberOfServings() 
