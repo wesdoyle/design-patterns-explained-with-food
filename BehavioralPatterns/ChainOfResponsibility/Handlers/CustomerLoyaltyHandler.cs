@@ -3,7 +3,7 @@ using BehavioralPatterns.ChainOfResponsibility.Constants;
 using RealisticDependencies;
 
 namespace BehavioralPatterns.ChainOfResponsibility.Handlers {
-    public class CustomerLoyaltyHandler : AbstractHandler {
+    public class CustomerLoyaltyHandler : AbstractStep {
         private readonly IApplicationLogger _logger;
 
         public CustomerLoyaltyHandler(IApplicationLogger logger) {

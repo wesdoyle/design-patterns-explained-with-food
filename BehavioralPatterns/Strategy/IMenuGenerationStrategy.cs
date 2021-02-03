@@ -12,14 +12,14 @@ namespace BehavioralPatterns.Strategy {
 
     public record Menu {
         public Menu(List<MenuItem> menuItems) => MenuItems = menuItems;
-        public List<MenuItem> MenuItems { get; set; }
+        public List<MenuItem> MenuItems { get; }
     }
 
     public record MenuItem {
         public MenuItem(string name, string description, decimal price)
             => (Name, Description, Price) = (name, description, price);
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
+        public string Name { get; }
+        public string Description { get; }
+        public decimal Price { get; }
     }
 }

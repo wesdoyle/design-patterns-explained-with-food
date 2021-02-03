@@ -30,8 +30,8 @@ namespace BakeryPurchaseOrderSystem {
             var database = new Database(Configuration.ConnectionString, logger);
             
             // Concrete Builders
-            var bakeryPoBuilder = new BakeryBuildsPurchaseOrders();
-            var coffeePoBuilder = new CoffeeBuildsPurchaseOrders();
+            var bakeryPoBuilder = new BakeryPurchaseOrderBuilder();
+            var coffeePoBuilder = new CoffeePurchaseOrderBuilder();
 
             // Director 
             var poProcessor = new PurchaseOrderProcessor(logger, database);

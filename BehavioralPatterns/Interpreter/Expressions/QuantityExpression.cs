@@ -6,7 +6,7 @@
             _inputChar = inputChar;
         }
 
-        public void Evaluate(BarcodeContext context) {
+        public void Interpret(BarcodeContext context) {
             if (int.TryParse(_inputChar.ToString(), out var _)) {
                 context.TotalQty += 1;
             }

@@ -5,9 +5,9 @@ using RealisticDependencies;
 
 namespace StructuralPatterns.Adapter {
     public class RecipeFinder : IAdaptsRecipesToJson {
-        private readonly RecipesApi _recipesApi;
+        private readonly IRecipesApi _recipesApi;
 
-        public RecipeFinder(RecipesApi recipesApi) {
+        public RecipeFinder(IRecipesApi recipesApi) {
             _recipesApi = recipesApi;
         }
 

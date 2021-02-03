@@ -3,7 +3,7 @@ using BehavioralPatterns.ChainOfResponsibility.Constants;
 using RealisticDependencies;
 
 namespace BehavioralPatterns.ChainOfResponsibility.Handlers {
-    public class ShippingLabelPrinter : AbstractHandler {
+    public class ShippingLabelPrinter : AbstractStep {
         private readonly IApplicationLogger _logger;
 
         public ShippingLabelPrinter(IApplicationLogger logger) {

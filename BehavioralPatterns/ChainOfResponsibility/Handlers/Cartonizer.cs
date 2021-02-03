@@ -3,7 +3,7 @@ using BehavioralPatterns.ChainOfResponsibility.Constants;
 using RealisticDependencies;
 
 namespace BehavioralPatterns.ChainOfResponsibility.Handlers {
-    public class Cartonizer : AbstractHandler {
+    public class Cartonizer : AbstractStep {
         private readonly IApplicationLogger _logger;
 
         public Cartonizer(IApplicationLogger logger) {

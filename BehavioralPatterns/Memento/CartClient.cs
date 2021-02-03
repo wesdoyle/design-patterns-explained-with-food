@@ -20,8 +20,7 @@ namespace BehavioralPatterns.Memento {
         public void Add(string doughnut) {
             // We persist the current state before updating the cart with a new doughnut
             var memento = _cart.Save();
-            _caretaker.SaveState(memento);
-
+            _caretaker.SafekeepState(memento);
             _cart.AddDoughnut(doughnut);
             _logger.LogInfo($"(Cart Client) Added doughnut and persisted this event to memory: [{doughnut}]");
         }

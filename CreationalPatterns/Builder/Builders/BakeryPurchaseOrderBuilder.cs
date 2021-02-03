@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using static CreationalPatterns.Builder.Models;
 
 namespace CreationalPatterns.Builder.Builders {
-    public class BakeryBuildsPurchaseOrders : IBuildsPurchaseOrders {
+    public class BakeryPurchaseOrderBuilder : IBuildsPurchaseOrders {
 
         private string _id;
         private DateTime _requestDate;
@@ -66,7 +66,7 @@ namespace CreationalPatterns.Builder.Builders {
             };
         }
 
-        public static implicit operator PurchaseOrder(BakeryBuildsPurchaseOrders builder) {
+        public static implicit operator PurchaseOrder(BakeryPurchaseOrderBuilder builder) {
             return builder.BuildPurchaseOrder();
         }
     }
