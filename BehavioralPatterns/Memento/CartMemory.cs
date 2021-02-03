@@ -2,7 +2,7 @@
 
 namespace BehavioralPatterns.Memento {
     public interface IMementoCache {
-        void SaveState(Memento memento);
+        void SafekeepState(Memento memento);
         Memento GetPreviousStateAndUpdateMemory();
         Memento[] PeekMemory();
     }
@@ -16,7 +16,7 @@ namespace BehavioralPatterns.Memento {
     /// </summary>
     public class CartMemory : IMementoCache {
         private readonly Stack<Memento> _memory = new Stack<Memento>();
-        public void SaveState(Memento memento) {
+        public void SafekeepState(Memento memento) {
             _memory.Push(memento);
         }
 

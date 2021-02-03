@@ -8,6 +8,7 @@ namespace CreationalPatterns.Singleton {
         private readonly IApplicationLogger _logger;
         private readonly Database _database;
         private int _openConnections = 0;
+
         private static readonly Lazy<IngredientsDbConnectionPool> _instance 
             = new (() => {
                 var logger = new ConsoleLogger();
@@ -33,7 +34,7 @@ namespace CreationalPatterns.Singleton {
 
             _openConnections++;
             _logger.LogInfo($"Added connection to pool from: {client}", ConsoleColor.Blue);
-            await _database.Connect();
+            await _database.Connect(client);
         }
 
         public async Task Disconnect() {

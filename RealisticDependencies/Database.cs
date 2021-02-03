@@ -29,6 +29,12 @@ namespace RealisticDependencies {
             _logger.LogInfo($"{DateTime.UtcNow} - Connected to Database.", ConsoleColor.Magenta);
         }
 
+        public async Task Connect(string client) {
+            await Task.Delay(2500);
+            _isConnected = true;
+            _logger.LogInfo($"{DateTime.UtcNow} - [{client}] Connected to Database.", ConsoleColor.Magenta);
+        }
+
         public async Task Disconnect() {
             await Task.Delay(2500);
             _isConnected = false;

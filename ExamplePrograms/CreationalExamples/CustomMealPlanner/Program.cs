@@ -36,7 +36,7 @@ namespace CustomMealPlanner {
                 var mealPlanFactory = GetFactoryForDietType(dietType, logger);
                 ISendsEmails emailer = new Emailer(logger);
                 IMealPlanService mealPlanService = new MealPlanService(mealPlanFactory, emailer, logger);
-                await mealPlanService.SendDessertsPlanToSubscriber(customerEmail);
+                await mealPlanService.SendMealPlanToSubscriber(customerEmail);
 
             } catch (Exception e) {
                 logger.LogError($"{$"Error processing the meal plan: {e.Message}, {e.StackTrace}"}");

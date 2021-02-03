@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 
 namespace StructuralPatterns.Decorator {
-    public class NotificationDecorator : Notifier {
+    public abstract class NotificationDecorator : Notifier {
         protected Notifier Component;
 
         public NotificationDecorator(Notifier component) {

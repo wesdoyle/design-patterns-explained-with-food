@@ -8,13 +8,16 @@ namespace CreationalPatterns.AbstractFactory {
         private readonly ISendsEmails _emailer;
         private readonly IApplicationLogger _logger;
 
-        public MealPlanService(IMealPlanFactory factory, ISendsEmails emailer, IApplicationLogger logger) {
+        public MealPlanService(
+            IMealPlanFactory factory, 
+            ISendsEmails emailer, 
+            IApplicationLogger logger) {
             _factory = factory;
             _emailer = emailer;
             _logger = logger;
         }
 
-        public async Task SendDessertsPlanToSubscriber(string subscriberEmail) {
+        public async Task SendMealPlanToSubscriber(string subscriberEmail) {
             _logger.LogInfo($"--------------------------------------------------------------");
             var lunchMenu = _factory.GenerateLunchesMenu();
             var dessertMenu = _factory.GenerateDessertsMenu();
@@ -42,6 +45,6 @@ namespace CreationalPatterns.AbstractFactory {
     }
 
     public interface IMealPlanService {
-        public Task SendDessertsPlanToSubscriber(string customerEmail);
+        public Task SendMealPlanToSubscriber(string customerEmail);
     }
 }

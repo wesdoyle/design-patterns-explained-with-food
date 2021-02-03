@@ -4,7 +4,7 @@ using BehavioralPatterns.ChainOfResponsibility.Constants;
 using RealisticDependencies;
 
 namespace BehavioralPatterns.ChainOfResponsibility.Handlers {
-    public class ReceiptPrinter : AbstractHandler {
+    public class ReceiptPrinter : AbstractStep {
         private readonly ISendsEmails _emailer;
         private readonly IApplicationLogger _logger;
 

@@ -38,7 +38,7 @@ namespace BehavioralPatterns.Interpreter {
             }
 
             foreach (var expression in expressions) {
-                expression.Evaluate(_context);
+                expression.Interpret(_context);
             }
 
             var output = _context.TranslatedOutput;
