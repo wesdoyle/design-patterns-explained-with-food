@@ -10,16 +10,8 @@ namespace BehavioralPatterns.Strategy {
         Task<Menu> GenerateMenu();
     }
 
-    public record Menu {
-        public Menu(List<MenuItem> menuItems) => MenuItems = menuItems;
-        public List<MenuItem> MenuItems { get; }
-    }
+    public record Menu (List<MenuItem> MenuItems);
 
-    public record MenuItem {
-        public MenuItem(string name, string description, decimal price)
-            => (Name, Description, Price) = (name, description, price);
-        public string Name { get; }
-        public string Description { get; }
-        public decimal Price { get; }
-    }
+    public record MenuItem(string Name, string Description, decimal Price);        
+    
 }
