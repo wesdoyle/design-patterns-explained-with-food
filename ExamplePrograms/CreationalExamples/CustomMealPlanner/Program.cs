@@ -16,7 +16,7 @@ namespace CustomMealPlanner {
         /// increasing the ability to ensure compatibility across the various products of a MealPlanFactory.
         /// One of the downsides of this approach is that it is fairly complex for small use cases, though
         /// it does promote extensibility (Open / Closed principle - open for extension, closed for modification)
-        /// if new meal plans are introduced, there is no need clients of the MealPlanService.
+        /// if new meal plans are introduced, there is no need for clients of the MealPlanService to change.
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
