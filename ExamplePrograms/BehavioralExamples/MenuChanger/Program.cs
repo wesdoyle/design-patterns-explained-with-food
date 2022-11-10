@@ -6,7 +6,7 @@ using RealisticDependencies;
 namespace MenuChanger {
     public class Program {
         /// <summary>
-        /// Here we have out client code that passes a specifi IMenuGenerationStrategy
+        /// Here we have out client code that passes a specific IMenuGenerationStrategy
         /// to the RestaurantMenuContext for buiding a menu.
         /// The client provides a layer of abstraction where the appropriate strategy can
         /// be chosen, while the Context contains logic for carrying out any given strategy.
