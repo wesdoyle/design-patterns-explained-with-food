@@ -11,7 +11,7 @@ namespace Tests {
             // Arrange
             var mockLogger = new Mock<IApplicationLogger>();
             var emailer = new Emailer(mockLogger.Object);
-            var email = new EmailMessage("foo", "bar");
+            var email = new EmailMessage("fooo", "bar");
 
             // Act 
             await emailer.SendMessage(email);
